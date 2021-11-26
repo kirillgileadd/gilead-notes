@@ -20,7 +20,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 
 const DashItem = ({ name }) => {
-  const [tasks, setTasks] = useState()
+  const [tasks, setTasks] = useState([])
   const [inputValue, setInputValue] = useState('')
 
 
