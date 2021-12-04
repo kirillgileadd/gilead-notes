@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a33c890-e54d-4293-981a-ab6961a61fb8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DetailTask.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LoadingBoards.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Stats.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/redux/reducers/filter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DashItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DashBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashBoard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/boards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/boards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -35,7 +58,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1637862045636</updated>
-      <workItem from="1637862048487" duration="17960000" />
+      <workItem from="1637862048487" duration="18113000" />
+      <workItem from="1637922196032" duration="4786000" />
+      <workItem from="1637939534085" duration="596000" />
+      <workItem from="1638267298185" duration="34000" />
+      <workItem from="1638271174735" duration="11111000" />
+      <workItem from="1638291541237" duration="3124000" />
+      <workItem from="1638299404773" duration="1157000" />
+      <workItem from="1638614196360" duration="7082000" />
     </task>
     <servers />
   </component>

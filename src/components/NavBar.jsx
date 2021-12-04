@@ -22,11 +22,11 @@ const NavBar = () => {
   console.log(pathname.pathname);
 
   return (
-    <Grid item xs={3} sx={{ height: '100%', borderRight: '1px solid #ededed', textAlign: 'left' }}>
+    <Grid item xs={2} sx={{ height: '100%', borderRight: '1px solid #ededed', textAlign: 'left' }}>
       <Box>
-        <Typography variant={'h4'} sx={{ p: 4, fontWeight: '600' }}>.gileadToDo</Typography>
+        <Typography variant={'h5'} sx={{ p: 3, fontWeight: '600' }}>.GileadNote</Typography>
         <MenuList dense sx={{
-          mt: '20px', '& .Mui-selected': {
+          '& .Mui-selected': {
             borderRight: `5px solid ${theme.palette.primary.main}`,
             transition: "all 0.3s",
             backgroundColor: 'inherit'
@@ -37,16 +37,16 @@ const NavBar = () => {
             <ListItemIcon color={'black'}>
               <FolderOpenIcon className={'icon'} />
             </ListItemIcon>
-            <ListItemText inset>
-              <Typography color={'black'} variant={'h6'}>Projects</Typography>
+            <ListItemText >
+              <Typography color={'black'} variant={'body1'}>Projects</Typography>
             </ListItemText>
           </MyMenuItem>
           <MyMenuItem selected={'/stats' === pathname.pathname} component={Link} to={'/stats'}>
             <ListItemIcon color={'black'}>
               <StackedLineChartIcon className={'icon'} />
             </ListItemIcon>
-            <ListItemText inset>
-              <Typography color={'black'} variant={'h6'}>Stats</Typography>
+            <ListItemText >
+              <Typography color={'black'} variant={'body1'}>Stats</Typography>
             </ListItemText>
           </MyMenuItem>
           <Box sx={{flexGrow: 1}}/>

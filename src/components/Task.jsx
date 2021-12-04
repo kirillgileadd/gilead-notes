@@ -1,20 +1,21 @@
 import React from 'react';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { purple } from '@mui/material/colors';
 import { theme } from '../theme/theme';
+import { Link } from 'react-router-dom';
 
-const Catygory = styled(Typography)(({theme}) => ({
+const Catygory = styled(Typography)(({ theme }) => ({
   backgroundColor: purple[100],
-  padding: "5px 15px",
-  borderRadius: "20px",
+  padding: '5px 15px',
+  borderRadius: '20px',
   color: purple[400]
-}))
+}));
 
-const Task = ({title, id, text, category, children}) => {
+const Task = ({ title, id, text, category, children }) => {
   return (
-    <Paper sx={{mb: 2, mt: 2, p: 1, borderRadius: "20px"}}>
-      <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+    <Paper draggable={true} sx={{ mb: 2, mt: 2, p: 1, borderRadius: '20px', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant={'subtitle1'}>
           {title}
         </Typography>
@@ -22,9 +23,13 @@ const Task = ({title, id, text, category, children}) => {
           {category}
         </Catygory>
       </Box>
-      <Typography sx={{display: 'block', height: '100%'}} variant={'body2'} color={theme.palette.secondary.main}>
+      <Typography sx={{ display: 'block', height: '100%', mb: 3 }} variant={'body2'}
+                  color={theme.palette.secondary.main}>
         {text}
       </Typography>
+      <Link style={{textDecoration: 'none', alignSelf: 'flex-end'}} to={`/${id}`}>
+        <Button sx={{borderRadius: '20px' }} variant={'outlined'}>Details</Button>
+      </Link>
     </Paper>
   );
 };

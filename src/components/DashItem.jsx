@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 import styled from '@emotion/styled';
-import { theme } from '../theme/theme';
-import TaskList from './TaskList';
 import Task from './Task';
+import { theme } from '../theme/theme';
+import { useDispatch } from 'react-redux';
+import { addTaskAction } from '../redux/actions/boards';
 
 const CustomPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
@@ -19,25 +20,36 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 
-const DashItem = ({ name }) => {
-  const [tasks, setTasks] = useState([])
+const DashItem = ({ title, board }) => {
+  const dispatch = useDispatch()
   const [inputValue, setInputValue] = useState('')
+  console.log(board)
 
+  const addTask = () => {
+    const newTask = {
+      id: 5,
+      title: 'New Task',
+      text: 'body2body2body2body2body2',
+      category: 'test'
+    }
+    const listId = board.id
+    dispatch(addTaskAction(newTask, listId))
+  }
 
   return (
-    <Grid item xs={4} sx={{ height: '100%' }}>
+    <Grid item xs={4} >
       <CustomPaper sx={{ height: '100%' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: '12px' }}>
-          <Typography sx={{ fontWeight: '500' }}>
-            {name}
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: '12px', alignItems: 'center' }}>
+          <Typography variant={'h6'} sx={{ fontWeight: '500' }}>
+            {board.title}
           </Typography>
-          <span>
-            2
-          </span>
+          <Typography sx={{backgroundColor: theme.palette.primary.dark, p: "3px 8px", borderRadius: '7px'}} color={'primary'}>
+            {board.tasks.length}
+          </Typography>
         </Box>
-        <CustomButton fullWidth><Typography variant={'h5'} sx={{ fontSize: '30px' }}>+</Typography></CustomButton>
+        <CustomButton fullWidth onClick={addTask}><Typography variant={'h5'} sx={{ fontSize: '30px' }}>+</Typography></CustomButton>
         {
-          tasks.map((obj) => <Task {...obj}/>)
+           board.tasks.map((obj) => <Task {...obj}/>)
         }
       </CustomPaper>
     </Grid>

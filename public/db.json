@@ -1,0 +1,65 @@
+{
+  "items": {
+    "items": {
+      "list-1": {
+        "id": 1,
+        "title": "To Do",
+        "tasks": [
+          {
+            "id": 1,
+            "title": "First Task",
+            "text": "body2body2body2body2body2",
+            "category": "test"
+          },
+          {
+            "id": 2,
+            "title": "Second Task",
+            "text": "body2body2body2body2body2",
+            "category": "test"
+          },
+          {
+            "id": 2,
+            "title": "Third Task",
+            "text": "body2body2body2body2body2",
+            "category": "test"
+          }
+        ]
+      },
+      "list-2": {
+        "id": 2,
+        "title": "Progress",
+        "tasks": [
+          {
+            "id": 1,
+            "title": "First Task",
+            "text": "body2body2body2body2body2",
+            "category": "test"
+          },
+          {
+            "id": 2,
+            "title": "Second Task",
+            "text": "body2body2body2body2body2",
+            "category": "test"
+          }
+        ]
+      },
+      "list-3": {
+        "id": 3,
+        "title": "Done",
+        "tasks": [
+          {
+            "id": 1,
+            "title": "First Task",
+            "text": "body2body2body2body2body2",
+            "category": "test"
+          }
+        ]
+      }
+    },
+    "listIds": [
+      "list-1",
+      "list-2",
+      "list-3"
+    ]
+  }
+}

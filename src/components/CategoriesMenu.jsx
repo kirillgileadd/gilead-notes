@@ -4,9 +4,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-
+import { ListItemIcon } from '@mui/material';
+import CategoryIcon from '@mui/icons-material/Category';
 const options = [
-  'Show some love to MUI',
+  'All Category',
   'Show all notification content',
   'Hide sensitive notification content',
   'Hide all notification content',
@@ -46,8 +47,11 @@ function CategoriesMenu() {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClickListItem}
         >
+          <ListItemIcon>
+            <CategoryIcon className={'icon'}/>
+          </ListItemIcon>
           <ListItemText
-            primary="All Category"
+            primary="Category"
             secondary={options[selectedIndex]}
           />
         </ListItem>
