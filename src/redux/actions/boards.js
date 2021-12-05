@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const fetchBoards = (sortBy, category) => (dispatch) =>  {
   dispatch(setLoaded(false))
-  axios.get('http://localhost:3001/items').then(({data}) => {
+  axios.get('http://localhost:3001/tasks').then(({data}) => {
     dispatch(setBoards(data))
   })
 }
@@ -17,8 +17,7 @@ export const setBoards = (boards) => {
 export const addTaskAction = (task, id) => {
   return {
     type: 'ADD_TASK',
-    payload: task,
-    listId: id
+    payload: {task, listId: id}
   }
 }
 

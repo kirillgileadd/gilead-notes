@@ -1,65 +1,25 @@
 {
-  "items": {
-    "items": {
-      "list-1": {
-        "id": 1,
-        "title": "To Do",
-        "tasks": [
-          {
-            "id": 1,
-            "title": "First Task",
-            "text": "body2body2body2body2body2",
-            "category": "test"
-          },
-          {
-            "id": 2,
-            "title": "Second Task",
-            "text": "body2body2body2body2body2",
-            "category": "test"
-          },
-          {
-            "id": 2,
-            "title": "Third Task",
-            "text": "body2body2body2body2body2",
-            "category": "test"
-          }
-        ]
-      },
-      "list-2": {
-        "id": 2,
-        "title": "Progress",
-        "tasks": [
-          {
-            "id": 1,
-            "title": "First Task",
-            "text": "body2body2body2body2body2",
-            "category": "test"
-          },
-          {
-            "id": 2,
-            "title": "Second Task",
-            "text": "body2body2body2body2body2",
-            "category": "test"
-          }
-        ]
-      },
-      "list-3": {
-        "id": 3,
-        "title": "Done",
-        "tasks": [
-          {
-            "id": 1,
-            "title": "First Task",
-            "text": "body2body2body2body2body2",
-            "category": "test"
-          }
-        ]
-      }
+  "tasks": [
+    {
+      "id": 1,
+      "title": "First Task",
+      "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC",
+      "category": "test1",
+      "listId": 1
     },
-    "listIds": [
-      "list-1",
-      "list-2",
-      "list-3"
-    ]
-  }
+    {
+      "id": 2,
+      "title": "Second Task",
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "category": "test2",
+      "listId": 2
+    },
+    {
+      "id": 3,
+      "title": "Third Task",
+      "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+      "category": "test3",
+      "listId": 3
+    }
+  ]
 }

@@ -1,6 +1,22 @@
 const initialState = {
-  items: {},
-  listIds: [],
+  items: {
+    "list-1": {
+      id: 1,
+      title: 'To Do',
+      tasks: []
+    },
+    "list-2": {
+      id: 2,
+      title: 'Progress',
+      tasks: []
+    },
+    "list-3": {
+      id: 3,
+      title: 'Done',
+      tasks: []
+    }
+  },
+  listIds: ['list-1', 'list-2', 'list-3'],
   loading: false
 };
 
@@ -8,10 +24,17 @@ const initialState = {
 export const boards = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_BOARDS': {
+      const setItem = action.payload[0].listId
+
       return {
         ...state,
-        items: action.payload.items,
-        listIds: action.payload.listIds,
+        items: {
+          ...state.items,
+          [`list-${setItem}`]: {
+            ...state.items[`list-${setItem}`],
+            tasks: action.payload
+          }
+        },
         loading: true
       };
     }
@@ -20,9 +43,9 @@ export const boards = (state = initialState, action) => {
         ...state,
         items: {
           ...state.items,
-          [`list-${action.listId}`]: {
-            ...state.items[`list-${action.listId}`],
-            tasks: state.items[`list-${action.listId}`].tasks ? [...state.items[`list-${action.listId}`].tasks, action.payload] : [action.payload]
+          [`list-${action.payload.listId}`]: {
+            ...state.items[`list-${action.payload.listId}`],
+            tasks: state.items[`list-${action.payload.listId}`].tasks ? [...state.items[`list-${action.payload.listId}`].tasks, action.payload.task] : [action.payload.task]
           }
         }
       };
@@ -31,7 +54,7 @@ export const boards = (state = initialState, action) => {
       return {
         ...state,
         loading: action.payload
-      }
+      };
     }
     default:
       return state;
