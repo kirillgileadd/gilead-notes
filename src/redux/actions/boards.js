@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { options } from '../../components/CategoriesMenu';
 
 export const fetchBoards = (sortBy, category) => (dispatch) =>  {
   dispatch(setLoaded(false))
-  axios.get('http://localhost:3001/tasks').then(({data}) => {
+  axios.get(`http://localhost:3001/tasks?${category !== 0 ? `category=${options[category]}` : ''}`).then(({data}) => {
     dispatch(setBoards(data))
   })
 }

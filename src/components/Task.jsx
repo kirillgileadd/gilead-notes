@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 export const Catygory = styled(Typography)(({ theme }) => ({
   backgroundColor: purple[100],
@@ -31,14 +32,11 @@ const Task = ({ title, id, text, category, children }) => {
         {text}
       </Typography>
       <div style={{alignSelf: 'flex-end'}}>
-        <IconButton size={'small'} variant={'outlined'} sx={{mr: 1, color: `${theme.palette.primary.main}`}}>
-          <EditIcon fontSize={'small'}/>
-        </IconButton >
         <IconButton  size={'small'} variant={'outlined'} sx={{mr: 1, color: `${theme.palette.primary.main}`}}>
-          <DeleteIcon fontSize={'small'}/>
+          <DeleteOutlineOutlinedIcon fontSize={'small'}/>
         </IconButton>
         <Link style={{textDecoration: 'none'}} to={`/${id}`}>
-          <Button sx={{borderRadius: '20px' }} variant={'outlined'}>Details</Button>
+          <Button sx={{borderRadius: '20px', textTransform: 'none' }} variant={'outlined'}>Details</Button>
         </Link>
       </div>
     </Paper>

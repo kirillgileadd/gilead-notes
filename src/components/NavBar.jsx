@@ -1,11 +1,9 @@
 import React from 'react';
 import { Box, Grid, ListItemIcon, ListItemText, MenuItem, MenuList, Typography } from '@mui/material';
 import styled from '@emotion/styled';
-import ContentCut from '@mui/icons-material/ContentCut';
 import { theme } from '../theme/theme';
 import { Link, useLocation } from 'react-router-dom';
-import FolderOpenIcon from '@mui/icons-material/FolderOpen';
-import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import '../App.css';
 import CategoriesMenu from './CategoriesMenu';
@@ -35,10 +33,10 @@ const NavBar = () => {
         }}>
           <MyMenuItem selected={'/' === pathname.pathname} component={Link} to={'/'}>
             <ListItemIcon color={'black'}>
-              <FolderOpenIcon className={'icon'} />
+              <TextSnippetIcon className={'icon'} />
             </ListItemIcon>
             <ListItemText >
-              <Typography color={'black'} variant={'body1'}>Projects</Typography>
+              <Typography color={'black'} variant={'body1'}>Notes</Typography>
             </ListItemText>
           </MyMenuItem>
           <MyMenuItem selected={'/stats' === pathname.pathname} component={Link} to={'/stats'}>

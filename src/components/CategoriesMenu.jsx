@@ -6,24 +6,39 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { ListItemIcon } from '@mui/material';
 import CategoryIcon from '@mui/icons-material/Category';
-const options = [
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategoryAction } from '../redux/actions/filter';
+import { green, pink, purple, red } from '@mui/material/colors';
+import styled from '@emotion/styled';
+export const options = [
   'All Category',
-  'Show all notification content',
-  'Hide sensitive notification content',
-  'Hide all notification content',
-  'Hide all notification content',
+  'Technologies',
+  'Design',
+  'Program',
 ];
+
+export const options2 = [
+  {name: 'All Category', color: "#2C9A85"},
+  {name: 'Technologies', color: '#f55742'},
+  {name: 'Design', color: '#f5e342'},
+  {name: 'Program', color: "#da42f5"},
+];
+
+const StyledMenuItem = styled(MenuItem)(({theme}) => {
+})
 
 function CategoriesMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  const {category} = useSelector(({filter}) => filter)
+  const dispatch = useDispatch()
   const open = Boolean(anchorEl);
+
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
+    dispatch(setCategoryAction(index));
     setAnchorEl(null);
   };
 
@@ -52,7 +67,7 @@ function CategoriesMenu() {
           </ListItemIcon>
           <ListItemText
             primary="Category"
-            secondary={options[selectedIndex]}
+            secondary={options[category]}
           />
         </ListItem>
       </List>
@@ -66,14 +81,15 @@ function CategoriesMenu() {
           role: 'listbox',
         }}
       >
-        {options.map((option, index) => (
+        {options2.map((option, index) => (
+
           <MenuItem
-            key={option}
-            disabled={index === 0}
-            selected={index === selectedIndex}
+
+            key={option.name}
+            selected={index === category}
             onClick={(event) => handleMenuItemClick(event, index)}
           >
-            {option}
+            {option.name}
           </MenuItem>
         ))}
       </Menu>

@@ -41,7 +41,7 @@ const DashBoard = () => {
 
   return (
     <Box sx={{ textAlign: 'left', p: 4, pb: 0 }}>
-      <Typography variant={'h5'} sx={{ mb: 4, fontWeight: '500' }}>Projects</Typography>
+      <Typography variant={'h5'} sx={{ mb: 4, fontWeight: '500' }}>Notes</Typography>
       <Grid container spacing={3} sx={{ display: 'flex', height: '100vh' }}>
         {
             loading ? data.listIds.map((listId, index) => {
