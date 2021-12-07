@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { ListItemIcon } from '@mui/material';
-import CategoryIcon from '@mui/icons-material/Category';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryAction } from '../redux/actions/filter';
 import { green, pink, purple, red } from '@mui/material/colors';
@@ -62,8 +62,8 @@ function CategoriesMenu() {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClickListItem}
         >
-          <ListItemIcon>
-            <CategoryIcon className={'icon'}/>
+          <ListItemIcon sx={{display: 'inline-block', minWidth: '40px'}}>
+            <CategoryOutlinedIcon className={'icon'}/>
           </ListItemIcon>
           <ListItemText
             primary="Category"

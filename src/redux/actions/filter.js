@@ -4,3 +4,10 @@ export const setCategoryAction = (catIndex) => {
     payload: catIndex
   };
 };
+
+export const setSearch = (name) => {
+  return {
+    type: 'SET_SEARCH',
+    payload: name
+  };
+}

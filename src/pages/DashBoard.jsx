@@ -30,13 +30,13 @@ const fakeTasks = [
 
 const DashBoard = () => {
   const dispatch = useDispatch()
-  const {sortBy, category} = useSelector(({filter}) => filter)
+  const {sortBy, category, search} = useSelector(({filter}) => filter)
   const data = useSelector(({boards}) => boards)
-  const loading = useSelector(({boards}) => boards.loading)
+
 
   useEffect(() => {
-    dispatch(fetchBoards(sortBy, category))
-  }, [dispatch, category, sortBy])
+    dispatch(fetchBoards(sortBy, category, search))
+  }, [dispatch, category, sortBy, search])
 
 
   return (
@@ -44,10 +44,10 @@ const DashBoard = () => {
       <Typography variant={'h5'} sx={{ mb: 4, fontWeight: '500' }}>Notes</Typography>
       <Grid container spacing={3} sx={{ display: 'flex', height: '100vh' }}>
         {
-            loading ? data.listIds.map((listId, index) => {
+          data.listIds.map((listId, index) => {
             const board = data.items[listId];
             return <DashItem board={board} key={listId} index={index} />;
-          }) : <LoadingBoards/>
+          })
         }
       </Grid>
     </Box>

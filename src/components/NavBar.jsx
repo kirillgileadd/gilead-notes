@@ -3,10 +3,11 @@ import { Box, Grid, ListItemIcon, ListItemText, MenuItem, MenuList, Typography }
 import styled from '@emotion/styled';
 import { theme } from '../theme/theme';
 import { Link, useLocation } from 'react-router-dom';
-import TextSnippetIcon from '@mui/icons-material/TextSnippet';
+import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import '../App.css';
 import CategoriesMenu from './CategoriesMenu';
+
 
 
 const MyMenuItem = styled(MenuItem)(({ theme }) => ({
@@ -33,7 +34,7 @@ const NavBar = () => {
         }}>
           <MyMenuItem selected={'/' === pathname.pathname} component={Link} to={'/'}>
             <ListItemIcon color={'black'}>
-              <TextSnippetIcon className={'icon'} />
+              <TextSnippetOutlinedIcon className={'icon'} />
             </ListItemIcon>
             <ListItemText >
               <Typography color={'black'} variant={'body1'}>Notes</Typography>
