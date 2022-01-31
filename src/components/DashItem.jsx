@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import Task from './Task';
@@ -22,7 +22,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 
-const DashItem = ({ title, board }) => {
+const DashItem = ({ title, board, categoryList }) => {
   const dispatch = useDispatch()
   const [openModal, setOpenModal] = React.useState(false);
   const loading = useSelector(({boards}) => boards.loading)
@@ -52,7 +52,7 @@ const DashItem = ({ title, board }) => {
         <CustomButton fullWidth onClick={handleOpenModal}><Typography variant={'h5'} sx={{ fontSize: '30px' }}>+</Typography></CustomButton>
         {
           loading ?
-           board.tasks.map((obj) => <Task {...obj}/>) : <LoadingBoards/>
+           board.tasks.map((obj) => <Task {...obj} categoryList={categoryList}/>) : <LoadingBoards/>
         }
       </CustomPaper>
       <AddModal setOpenModal={setOpenModal} open={openModal} addTask={addTask} handleCloseModal={handleCloseModal}/>

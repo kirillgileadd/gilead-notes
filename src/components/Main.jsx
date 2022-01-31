@@ -11,9 +11,9 @@ const Main = () => {
     <Grid xs={10} item>
       <Header />
       <Routes>
-      <Route path={'/'} element={<DashBoard />} />
-      <Route path={'/:id'} element={<DetailTask />} />
-      <Route path={'/stats'} element={<Stats />} />
+        <Route path={'/'} element={<DashBoard />} />
+        <Route path={'/:id'} element={<DetailTask />} />
+        <Route path={'/stats'} element={<Stats />} />
       </Routes>
     </Grid>
   );

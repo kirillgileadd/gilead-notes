@@ -1,7 +1,6 @@
 const initialState = {
-  sortBy: 1,
-  category: 0,
-  search: ''
+  currentCategory: null,
+  search: '',
 };
 
 
@@ -10,7 +9,7 @@ export const filter = (state = initialState, action) => {
     case 'SET_CATEGORY': {
       return {
         ...state,
-        category: action.payload
+        currentCategory: action.payload
       };
     }
     case 'SET_SEARCH': {

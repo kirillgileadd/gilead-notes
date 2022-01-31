@@ -1,5 +1,5 @@
 import './App.css';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
 

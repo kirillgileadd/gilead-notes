@@ -7,6 +7,7 @@ import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import '../App.css';
 import CategoriesMenu from './CategoriesMenu';
+import logo from '../assets/finalLogo.svg'
 
 
 
@@ -23,7 +24,10 @@ const NavBar = () => {
   return (
     <Grid item xs={2} sx={{ height: '100%', borderRight: '1px solid #ededed', textAlign: 'left' }}>
       <Box>
-        <Typography variant={'h5'} sx={{ p: 3, fontWeight: '600' }}>.GileadNote</Typography>
+        <Box display={'flex'} alignItems={'center'} sx={{p: 2, mb: 1}}>
+          <img style={{width: '40px', marginRight: '8px'}} src={logo} alt='' />
+          <Typography variant={'h5'} sx={{fontWeight: '600', alignSelf: 'flex-end' }}>.GileadNote</Typography>
+        </Box>
         <MenuList dense sx={{
           '& .Mui-selected': {
             borderRight: `5px solid ${theme.palette.primary.main}`,

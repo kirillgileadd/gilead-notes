@@ -1,30 +1,22 @@
-import axios from 'axios';
-import { options } from '../../components/CategoriesMenu';
+import { boardsAPI } from '../../api/api';
 
-export const fetchBoards = (sortBy, category, search) => (dispatch) =>  {
-  dispatch(setLoaded(false))
-  axios.get(`http://localhost:3001/tasks?${category !== 0 ? `category=${options[category]}` : ''}${search !== '' ? `q=${search}` : ''}`).then(({data}) => {
-    dispatch(setBoards(data))
-  })
-}
+export const fetchBoards = (page, currentCategoryItem ) => async (dispatch) => {
+  dispatch(setLoaded(false));
+  let response = await boardsAPI.getBoards(1, currentCategoryItem);
+  dispatch(setBoards(response.data));
+};
 
-export const setBoards = (boards) => {
-  return {
+export const setBoards = (boards) => ({
     type: 'SET_BOARDS',
     payload: boards
-  }
-}
+});
 
-export const addTaskAction = (task, id) => {
-  return {
+export const addTaskAction = (task, id) => ({
     type: 'ADD_TASK',
-    payload: {task, listId: id}
-  }
-}
+    payload: { task, listId: id }
+});
 
-export const setLoaded = (body) => {
-  return {
+export const setLoaded = (body) => ({
     type: 'SET_LOADED',
     payload: body
-  }
-}
+});

@@ -8,24 +8,31 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import { useSelector } from 'react-redux';
+import { alpha } from '@mui/material/styles';
 
 export const Catygory = styled(Typography)(({ theme }) => ({
-  backgroundColor: purple[100],
+  // backgroundColor: purple[100],
   padding: '5px 15px',
   borderRadius: '20px',
-  color: purple[400]
+  // color: purple[400]
 }));
 
-const Task = ({ title, id, text, category, children }) => {
+const Task = ({ title, id, text, category, categoryList }) => {
+  let currentCategory = categoryList.filter((cat) => cat.name === category)[0]
+
   return (
     <Paper draggable={true} sx={{ mb: 2, mt: 2, p: 1, borderRadius: '20px', display: 'flex', flexDirection: 'column', maxHeight: '200px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
         <Typography variant={'subtitle1'}>
           {title}
         </Typography>
-        <Catygory>
-          {category}
-        </Catygory>
+        {
+          currentCategory && <Catygory color={currentCategory?.color} backgroundColor={alpha(currentCategory?.color, 0.1)}>
+          {currentCategory?.name}
+          </Catygory>
+        }
+
       </Box>
       <Typography sx={{ display: 'block', height: '100%',  maxHeight: '200px', overflow: 'hidden' }} variant={'body2'}
                   color={theme.palette.secondary.main}>

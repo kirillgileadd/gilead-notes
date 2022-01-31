@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Grid, Typography } from '@mui/material';
-import { styled, alpha } from '@mui/material/styles';
+import React, { useState } from 'react';
+import { Typography } from '@mui/material';
+import { alpha, styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,7 +10,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearch } from '../redux/actions/filter';
-import { fetchBoards } from '../redux/actions/boards';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -63,12 +62,14 @@ const StyledAppBar = styled(AppBar)(({}) => ({
 const Header = () => {
   const dispatch = useDispatch()
   const {search} = useSelector(({filter}) => filter)
+  const [searchValue, setSearchValue] = useState('')
 
   const handleSearchValue = (e) => {
     const {value} = e.target
-    console.log(value)
-    dispatch(setSearch(value))
+    setSearchValue(value)
+    // dispatch(setSearch(value))
   }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <StyledAppBar position='static' sx={{}}>
@@ -78,7 +79,7 @@ const Header = () => {
               <SearchIcon color={'secondary'} />
             </SearchIconWrapper>
             <StyledInputBase
-              value={search}
+              value={searchValue}
               onChange={handleSearchValue}
               placeholder='Search…'
               inputProps={{ 'aria-label': 'search' }}

@@ -1,37 +1,32 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import { ListItemIcon } from '@mui/material';
+import { ListItemIcon, Typography } from '@mui/material';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryAction } from '../redux/actions/filter';
-import { green, pink, purple, red } from '@mui/material/colors';
-import styled from '@emotion/styled';
-export const options = [
-  'All Category',
-  'Technologies',
-  'Design',
-  'Program',
-];
-
-export const options2 = [
-  {name: 'All Category', color: "#2C9A85"},
-  {name: 'Technologies', color: '#f55742'},
-  {name: 'Design', color: '#f5e342'},
-  {name: 'Program', color: "#da42f5"},
-];
-
-const StyledMenuItem = styled(MenuItem)(({theme}) => {
-})
+import { alpha } from '@mui/material/styles';
+import { fetchBoards } from '../redux/actions/boards';
+import { fetchCategories } from '../redux/actions/categories';
 
 function CategoriesMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const {category} = useSelector(({filter}) => filter)
+  const {currentCategory} = useSelector(({filter}) => filter)
+  const { categoryList } = useSelector(({categories}) => categories)
+  const { isLoading } = useSelector(({categories}) => categories)
   const dispatch = useDispatch()
   const open = Boolean(anchorEl);
+
+  const currentCategoryItem = categoryList.filter((item) => item.id === currentCategory)[0]
+
+  useEffect(() => {
+    dispatch(fetchBoards(1, currentCategoryItem))
+    dispatch(fetchCategories())
+  }, [currentCategory])
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -46,7 +41,7 @@ function CategoriesMenu() {
     setAnchorEl(null);
   };
 
-  return (
+  return !isLoading &&
     <div>
       <List
         component="nav"
@@ -67,7 +62,7 @@ function CategoriesMenu() {
           </ListItemIcon>
           <ListItemText
             primary="Category"
-            secondary={options[category]}
+            secondary={currentCategoryItem?.name || 'All categories'}
           />
         </ListItem>
       </List>
@@ -81,20 +76,26 @@ function CategoriesMenu() {
           role: 'listbox',
         }}
       >
-        {options2.map((option, index) => (
-
+        <MenuItem
+          selected={currentCategory === null}
+          onClick={() => handleMenuItemClick(null)}
+        >
+          All Category
+        </MenuItem>
+        {categoryList.map((option, index) => (
           <MenuItem
-
+            sx={{p: 0}}
             key={option.name}
-            selected={index === category}
+            selected={index === currentCategory}
             onClick={(event) => handleMenuItemClick(event, index)}
           >
-            {option.name}
+            <Typography sx={{width: '100%', height: '100%', p: 1, textAlign: 'center'}} color={option?.color} backgroundColor={alpha(option.color, 0.1)}>
+              {option.name}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>
     </div>
-  );
 }
 
 export default CategoriesMenu
