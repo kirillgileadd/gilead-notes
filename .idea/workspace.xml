@@ -2,31 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a33c890-e54d-4293-981a-ab6961a61fb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useDebounce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/categories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/db.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddNewTask.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DashItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailTask.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailTask.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/DashBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashBoard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/boards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/boards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/theme/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme/theme.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,6 +59,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Stalin\Desktop\react\gilead-to-do" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -92,6 +99,7 @@
       <workItem from="1643038422889" duration="268000" />
       <workItem from="1643081250684" duration="599000" />
       <workItem from="1643628685382" duration="12019000" />
+      <workItem from="1643785608097" duration="24559000" />
     </task>
     <servers />
   </component>

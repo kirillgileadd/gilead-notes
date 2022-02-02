@@ -7,46 +7,45 @@ import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { theme } from '../theme/theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDetailTask } from '../redux/actions/boards';
+import { alpha } from '@mui/material/styles';
 
 const DetailTask = () => {
-  const [item, setItem] = useState({});
-
-  let params = useParams();
-
-  const fetchItem = async () => {
-    const itemF = await fetch(
-      `http://localhost:3001/tasks/${params.id}`
-    );
-    const item = await itemF.json();
-    setItem(item);
-  };
+  const dispatch = useDispatch();
+  const [task, setTask] = useState({ });
+  const { categoryList } = useSelector(({ categories }) => categories);
+  let currentCategory = categoryList.find((cat) => cat.name === task.category)
+  let { id } = useParams();
 
   useEffect(() => {
-    fetchItem();
+    dispatch(fetchDetailTask(id, setTask));
   }, []);
 
   return (
-    <Box sx={{textAlign: 'start', p: 4}}>
-      <Box sx={{display: 'flex',  marginBottom: '10px', alignItems: 'center' }}>
-        <Link style={{textDecoration: 'none'}} to={'/'}>
-        <IconButton sx={{mr: 2, color: `${theme.palette.primary.main}`}}>
-          <ArrowBackIcon/>
-        </IconButton>
+    <Box sx={{ textAlign: 'start', p: 4 }}>
+      <Box sx={{ display: 'flex', marginBottom: '10px', alignItems: 'center' }}>
+        <Link style={{ textDecoration: 'none' }} to={'/'}>
+          <IconButton sx={{ mr: 2, color: `${theme.palette.primary.main}` }}>
+            <ArrowBackIcon />
+          </IconButton>
         </Link>
-        <IconButton sx={{mr: 2, color: `${theme.palette.primary.main}`}}>
-          <EditIcon/>
+        <IconButton sx={{ mr: 2, color: `${theme.palette.primary.main}` }}>
+          <EditIcon />
         </IconButton>
-        <IconButton sx={{mr: 2, color: `${theme.palette.primary.main}`}}>
-          <DeleteIcon/>
+        <IconButton sx={{ mr: 2, color: `${theme.palette.primary.main}` }}>
+          <DeleteIcon />
         </IconButton>
       </Box>
-      <Box sx={{display: 'flex',  marginBottom: '25px'}}>
-        <Typography sx={{mr: 2}} variant={'h5'}>{item.title}</Typography>
-        <Catygory>
-          {item.category}
-        </Catygory>
+      <Box sx={{ display: 'flex', marginBottom: '25px' }} display={'flex'} justifyContent={'space-between'}>
+        <Typography sx={{ mr: 2 }} variant={'h5'}>{task.title}</Typography>
+        {
+          currentCategory && <Catygory color={currentCategory?.color} backgroundColor={alpha(currentCategory?.color, 0.1)}>
+            {currentCategory?.name}
+          </Catygory>
+        }
       </Box>
-      <Typography color={'secondary'} variant={'h6'}>{item.text}</Typography>
+      <Typography color={'secondary'} variant={'body1'}>{task.text}</Typography>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -9,24 +9,31 @@ import { ListItemIcon, Typography } from '@mui/material';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryAction } from '../redux/actions/filter';
-import { alpha } from '@mui/material/styles';
-import { fetchBoards } from '../redux/actions/boards';
+import { clearBoards, fetchBoards } from '../redux/actions/boards';
 import { fetchCategories } from '../redux/actions/categories';
 
 function CategoriesMenu() {
+  const dispatch = useDispatch()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {currentCategory} = useSelector(({filter}) => filter)
   const { categoryList } = useSelector(({categories}) => categories)
-  const { isLoading } = useSelector(({categories}) => categories)
-  const dispatch = useDispatch()
+  const mounted = useRef();
   const open = Boolean(anchorEl);
 
-  const currentCategoryItem = categoryList.filter((item) => item.id === currentCategory)[0]
+  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory)
 
   useEffect(() => {
-    dispatch(fetchBoards(1, currentCategoryItem))
-    dispatch(fetchCategories())
+    if(!mounted.current) {
+      mounted.current = true;
+    } else {
+      dispatch(clearBoards())
+      dispatch(fetchBoards(1, currentCategoryItem))
+    }
   }, [currentCategory])
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [])
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -41,8 +48,7 @@ function CategoriesMenu() {
     setAnchorEl(null);
   };
 
-  return !isLoading &&
-    <div>
+  return <div>
       <List
         component="nav"
         aria-label="Device settings"
@@ -78,7 +84,7 @@ function CategoriesMenu() {
       >
         <MenuItem
           selected={currentCategory === null}
-          onClick={() => handleMenuItemClick(null)}
+          onClick={(e) => handleMenuItemClick(e,null)}
         >
           All Category
         </MenuItem>
@@ -89,7 +95,7 @@ function CategoriesMenu() {
             selected={index === currentCategory}
             onClick={(event) => handleMenuItemClick(event, index)}
           >
-            <Typography sx={{width: '100%', height: '100%', p: 1, textAlign: 'center'}} color={option?.color} backgroundColor={alpha(option.color, 0.1)}>
+            <Typography sx={{width: '100%', height: '100%', p: 1, textAlign: 'center'}} color={option?.color}>
               {option.name}
             </Typography>
           </MenuItem>

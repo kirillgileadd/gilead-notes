@@ -1,25 +1,19 @@
 import React from 'react';
 import { Box, Button, Paper, Typography } from '@mui/material';
 import styled from '@emotion/styled';
-import { purple } from '@mui/material/colors';
 import { theme } from '../theme/theme';
 import { Link } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import { useSelector } from 'react-redux';
 import { alpha } from '@mui/material/styles';
 
 export const Catygory = styled(Typography)(({ theme }) => ({
-  // backgroundColor: purple[100],
   padding: '5px 15px',
   borderRadius: '20px',
-  // color: purple[400]
 }));
 
-const Task = ({ title, id, text, category, categoryList }) => {
-  let currentCategory = categoryList.filter((cat) => cat.name === category)[0]
+const Task = ({ title, id, text, category, categoryList, deleteTask }) => {
+  let currentCategory = categoryList.find((cat) => cat.name === category)
 
   return (
     <Paper draggable={true} sx={{ mb: 2, mt: 2, p: 1, borderRadius: '20px', display: 'flex', flexDirection: 'column', maxHeight: '200px' }}>
@@ -35,11 +29,14 @@ const Task = ({ title, id, text, category, categoryList }) => {
 
       </Box>
       <Typography sx={{ display: 'block', height: '100%',  maxHeight: '200px', overflow: 'hidden' }} variant={'body2'}
-                  color={theme.palette.secondary.main}>
+                  color='secondary.main'>
         {text}
       </Typography>
       <div style={{alignSelf: 'flex-end'}}>
-        <IconButton  size={'small'} variant={'outlined'} sx={{mr: 1, color: `${theme.palette.primary.main}`}}>
+        <IconButton onClick={(e) => {
+          e.preventDefault()
+          deleteTask(id);
+        }} size={'small'} variant={'outlined'} sx={{mr: 1, color: 'primary.main'}}>
           <DeleteOutlineOutlinedIcon fontSize={'small'}/>
         </IconButton>
         <Link style={{textDecoration: 'none'}} to={`/${id}`}>

@@ -23,7 +23,7 @@ export const theme = createTheme({
     primary: {
       main: '#2C9A85',
       light: 'rgba(44, 154, 132, 0.05)',
-      dark: 'rgba(44, 154, 132, 0.12)',
+      // dark: 'rgba(44, 154, 132, 0.12)',
       contrastText: 'white',
     },
     secondary: {
