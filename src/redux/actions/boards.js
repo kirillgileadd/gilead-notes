@@ -14,14 +14,13 @@ export const fetchBoards = (currentPage, currentCategoryItem ) => async (dispatc
   }
 };
 
-export const deleteTaskThunk = (id) => async (dispatch) => {
-  // dispatch(setLoading(true))
+export const deleteTaskThunk = (id, listId) => async (dispatch) => {
+  dispatch(deleteTaskAction(id, listId))
   try {
     let response = await boardsAPI.deleteTask(id);
     console.log('del')
-    dispatch(deleteTaskAction(id))
   } catch (err) {
-    console.log('Something failed')
+    console.log(err)
   }
 };
 
@@ -62,9 +61,9 @@ export const addTaskAction = (task, id) => ({
     payload: { task, listId: id }
 });
 
-export const deleteTaskAction = (id) => ({
+export const deleteTaskAction = (id, listId) => ({
     type: 'DELETE_TASK',
-    payload: id
+    payload: {id, listId}
 });
 
 export const setCurrentPage = (currentPage) => ({

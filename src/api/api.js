@@ -15,9 +15,6 @@ export const boardsAPI = {
     return instance.delete(`tasks/${id}`)
   },
   postTask(task) {
-    const obj = {
-      ...task
-    }
     return axios.post(`http://localhost:3001/tasks`, {
       ...task
     } )

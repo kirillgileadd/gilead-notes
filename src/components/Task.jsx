@@ -12,7 +12,7 @@ export const Catygory = styled(Typography)(({ theme }) => ({
   borderRadius: '20px',
 }));
 
-const Task = ({ title, id, text, category, categoryList, deleteTask }) => {
+const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) => {
   let currentCategory = categoryList.find((cat) => cat.name === category)
 
   return (
@@ -35,7 +35,8 @@ const Task = ({ title, id, text, category, categoryList, deleteTask }) => {
       <div style={{alignSelf: 'flex-end'}}>
         <IconButton onClick={(e) => {
           e.preventDefault()
-          deleteTask(id);
+          console.log(id, listId)
+          deleteTask(id, listId);
         }} size={'small'} variant={'outlined'} sx={{mr: 1, color: 'primary.main'}}>
           <DeleteOutlineOutlinedIcon fontSize={'small'}/>
         </IconButton>

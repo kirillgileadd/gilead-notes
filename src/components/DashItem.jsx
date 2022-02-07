@@ -26,15 +26,14 @@ const DashItem = ({ title, board, categoryList }) => {
   const [openModal, setOpenModal] = React.useState(false);
   const { loading } = useSelector(({boards}) => boards)
   const listId = board.id
-  const addTask = (newTask) => {
 
+  const addTask = (newTask) => {
     dispatch(postTaskThunk(newTask, listId))
     setOpenModal(false)
   }
 
-  const deleteTask = (id) => {
-    console.log('deleted')
-    dispatch(deleteTaskThunk(id))
+  const deleteTask = (id, listId) => {
+    dispatch(deleteTaskThunk(id, listId))
   }
 
   const handleOpenModal = () => setOpenModal(true)
@@ -55,7 +54,7 @@ const DashItem = ({ title, board, categoryList }) => {
         </Box>
         <CustomButton fullWidth onClick={handleOpenModal}><Typography variant={'h5'} sx={{ fontSize: '30px' }}>+</Typography></CustomButton>
         {
-          true ? board.tasks.map((obj) => <Task {...obj} categoryList={categoryList} deleteTask={deleteTask}/>)  : <LoadingBoards/>
+          !loading ? board.tasks.map((obj) => <Task {...obj} categoryList={categoryList} deleteTask={deleteTask}/>)  : <LoadingBoards/>
         }
       </CustomPaper>
       <AddNewTask listId={listId} setOpenModal={setOpenModal} open={openModal} addTask={addTask} handleCloseModal={handleCloseModal}/>

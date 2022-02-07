@@ -16,115 +16,38 @@
     },
     {
       "title": "Chief Directives Representative",
-      "listId": 1,
+      "listId": 2,
       "category": "Program",
       "id": 3,
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
-      "title": "Chief Directives",
-      "listId": 2,
-      "category": "Design",
-      "id": 4,
+      "title": "Chief Directives Representative",
+      "listId": 1,
+      "category": "Technologies",
+      "id": 5,
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
+      "title": "Chief Directives Representative",
+      "listId": 2,
+      "category": "Design",
       "id": 6,
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
-      "listId": 1
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
+      "title": "Chief Directives Representative",
       "listId": 2,
-      "id": 7
+      "category": "",
+      "id": 7,
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
-      "listId": 3,
-      "id": 8
-    },
-    {
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
-      "listId": 2,
-      "id": 9
-    },
-    {
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
-      "listId": 3,
-      "id": 10
-    },
-    {
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
-      "listId": 2,
-      "id": 11
-    },
-    {
-      "title": "New Task",
-      "text": "newText",
-      "category": "NewCategory",
-      "listId": 2,
-      "id": 12
-    },
-    {
+      "id": 0.15520480009920012,
       "title": "New Task",
       "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
       "category": "Design",
-      "listId": 2,
-      "id": 13
-    },
-    {
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 3,
-      "id": 14
-    },
-    {
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 2,
-      "id": 15
-    },
-    {
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 3,
-      "id": 16
-    },
-    {
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 2,
-      "id": 17
-    },
-    {
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 1,
-      "id": 18
-    },
-    {
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 1,
-      "id": 19
+      "listId": 3
     }
   ],
   "categories": [

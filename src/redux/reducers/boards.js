@@ -94,16 +94,17 @@ export const boards = (state = initialState, action) => {
       };
     }
     case 'DELETE_TASK': {
-      const index = action.payload
+      const index = action.payload.id
+      const listId= action.payload.listId
       return {
         ...state,
-        // items: {
-        //   ...state.items,
-        //   [`list-${action.payload}`]: {
-        //     ...state.items[`list-${action.payload}`],
-        //     tasks: [...state.items[`list-${action.payload}`].tasks.slice(0, index)]
-        //   }
-        // }
+        items: {
+          ...state.items,
+          [`list-${listId}`]: {
+            ...state.items[`list-${listId}`],
+            tasks: [...state.items[`list-${listId}`].tasks.filter((el) => el.id !== index)]
+          }
+        }
       };
     }
     case 'SET_LOADED': {
