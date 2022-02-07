@@ -38,30 +38,16 @@
     {
       "title": "One more note",
       "text": "lorem",
-      "category": "Pyton",
+      "category": "Python",
       "listId": 3,
       "id": 7
     },
     {
       "title": "asd",
       "text": "asdasda",
-      "category": "Pyton",
+      "category": "Python",
       "listId": 1,
       "id": 8
-    },
-    {
-      "title": "",
-      "text": "",
-      "category": "Program",
-      "listId": 2,
-      "id": 9
-    },
-    {
-      "title": "sadfa",
-      "text": "sadASDASD",
-      "category": "asdsadad",
-      "listId": 2,
-      "id": 10
     }
   ],
   "categories": [
@@ -93,7 +79,7 @@
     {
       "color": "#d8bd12",
       "id": 5,
-      "name": "Pyton"
+      "name": "Python"
     }
   ]
 }
