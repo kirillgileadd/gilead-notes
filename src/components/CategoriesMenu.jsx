@@ -93,7 +93,7 @@ function CategoriesMenu() {
             sx={{p: 0}}
             key={option.name}
             selected={index === currentCategory}
-            onClick={(event) => handleMenuItemClick(event, index)}
+            onClick={(event) => handleMenuItemClick(event, option.id)}
           >
             <Typography sx={{width: '100%', height: '100%', p: 1, textAlign: 'center'}} color={option?.color}>
               {option.name}

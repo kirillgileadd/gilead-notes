@@ -38,7 +38,7 @@ const DetailTask = () => {
         </IconButton>
       </Box>
       <Box sx={{ display: 'flex', marginBottom: '25px' }} display={'flex'} justifyContent={'space-between'}>
-        <Typography sx={{ mr: 2 }} variant={'h5'}>{task.title}</Typography>
+        <Typography sx={{ mr: 2 }} variant={'h5'}>{task.title || 'Untitled'}</Typography>
         {
           currentCategory && <Catygory color={currentCategory?.color} backgroundColor={alpha(currentCategory?.color, 0.1)}>
             {currentCategory?.name}

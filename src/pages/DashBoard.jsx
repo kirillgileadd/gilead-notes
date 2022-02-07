@@ -44,7 +44,7 @@ const DashBoard = () => {
         {
           data.listIds.map((listId, index) => {
             const board = data.items[listId];
-            return <DashItem board={board} categoryList={categoryList} key={listId} index={index} />;
+            return <DashItem totalCount={totalCount} board={board} categoryList={categoryList} key={listId} index={index} />;
           })
         }
       </Grid>

@@ -1,6 +1,8 @@
-import { Box, Button, Modal } from '@mui/material';
+import { Box, Modal } from '@mui/material';
 import * as React from 'react';
 import '../App.css';
+import AddTaskForm from './AddTaskForm';
+import { useId } from 'react-id-generator';
 import { useSelector } from 'react-redux';
 
 
@@ -18,41 +20,18 @@ const style = {
 };
 
 
-const dot = (color = 'transparent') => ({
-  alignItems: 'center',
-  display: 'flex',
-
-  ':before': {
-    backgroundColor: color,
-    borderRadius: 10,
-    content: '" "',
-    display: 'block',
-    marginRight: 8,
-    height: 10,
-    width: 10
-  }
-});
-
-
 function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
-  const { totalCount } = useSelector(({ boards }) => boards);
-  const handleInputChange = () => {
+  const {totalCount} = useSelector(({boards}) => boards)
+  const [htmlId] = useId();
 
-  };
-
-  const handleChange = () => {
-
-  };
-
-  const addNewTask = (e) => {
+  const onSubmit = (data) => {
+    let catId = Number(totalCount ) + Number(htmlId[2])
+    console.log(catId)
     let newTask = {
-      id: Math.random(), //use Id generator
-      title: 'New Task',
-      text: 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
-      category: 'Design',
+      ...data,
       listId
-    }
-    addTask(newTask)
+    };
+    addTask(newTask);
   }
 
   return (
@@ -63,10 +42,10 @@ function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
-          <Button type={'button'} sx={{ display: 'block' }} variant={'contained'}
-                  onClick={(e) => addNewTask(e)}>ADD TASK
-          </Button>
+        <Box
+          sx={style}
+        >
+        <AddTaskForm onSubmit={onSubmit}/>
         </Box>
       </Modal>
     </div>

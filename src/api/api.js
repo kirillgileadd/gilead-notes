@@ -19,6 +19,11 @@ export const boardsAPI = {
       ...task
     } )
   },
+  postCategory(category) {
+    return axios.post(`http://localhost:3001/categories`, {
+      ...category
+    } )
+  },
   getCategories() {
     return instance.get(`categories`)
   },

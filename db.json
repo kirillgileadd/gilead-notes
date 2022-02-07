@@ -29,25 +29,39 @@
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
     },
     {
-      "title": "Chief Directives Representative",
+      "title": "New Note",
+      "text": "Lorem",
+      "category": "CS50",
       "listId": 2,
-      "category": "Design",
-      "id": 6,
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+      "id": 6
     },
     {
-      "title": "Chief Directives Representative",
-      "listId": 2,
-      "category": "",
-      "id": 7,
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+      "title": "One more note",
+      "text": "lorem",
+      "category": "Pyton",
+      "listId": 3,
+      "id": 7
     },
     {
-      "id": 0.15520480009920012,
-      "title": "New Task",
-      "text": "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
-      "category": "Design",
-      "listId": 3
+      "title": "asd",
+      "text": "asdasda",
+      "category": "Pyton",
+      "listId": 1,
+      "id": 8
+    },
+    {
+      "title": "",
+      "text": "",
+      "category": "Program",
+      "listId": 2,
+      "id": 9
+    },
+    {
+      "title": "sadfa",
+      "text": "sadASDASD",
+      "category": "asdsadad",
+      "listId": 2,
+      "id": 10
     }
   ],
   "categories": [
@@ -65,6 +79,21 @@
       "id": 2,
       "name": "Program",
       "color": "#da42f5"
+    },
+    {
+      "color": "#5ac216",
+      "id": 3,
+      "name": "Photo"
+    },
+    {
+      "color": "#17d958",
+      "id": 4,
+      "name": "CS50"
+    },
+    {
+      "color": "#d8bd12",
+      "id": 5,
+      "name": "Pyton"
     }
   ]
 }

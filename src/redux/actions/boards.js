@@ -18,7 +18,6 @@ export const deleteTaskThunk = (id, listId) => async (dispatch) => {
   dispatch(deleteTaskAction(id, listId))
   try {
     let response = await boardsAPI.deleteTask(id);
-    console.log('del')
   } catch (err) {
     console.log(err)
   }

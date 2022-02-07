@@ -13,6 +13,12 @@ export const categories = (state = initialState, action) => {
         categoryList: action.payload
       };
     }
+    case 'ADD_CATEGORY': {
+      return {
+        ...state,
+        categoryList: [...state.categoryList, action.payload]
+      };
+    }
     case 'SET_CATEGORIES_LOADING': {
       return {
         ...state,

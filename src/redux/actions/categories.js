@@ -4,6 +4,10 @@ export const setCategories = (data) => ({
     type: 'SET_CATEGORIES',
     payload: data
 })
+export const addCategory = (value) => ({
+    type: 'ADD_CATEGORY',
+    payload: value
+})
 
 export const setCategoriesLoading = (data) => ({
     type: 'SET_CATEGORIES_LOADING',
@@ -17,5 +21,14 @@ export const fetchCategories = () => async  (dispatch) =>  {
 
 export const changeCategories = (currentCategoryItem) => async  (dispatch) =>  {
   let response = await boardsAPI.changeCategories(currentCategoryItem)
+  // dispatch(setBoards(response.data))
+}
+export const addCategoryThunk = (category) => async  (dispatch) =>  {
+  try {
+    let response = await boardsAPI.postCategory(category)
+    dispatch(addCategory(category))
+  } catch (e) {
+    console.log(e)
+  }
   // dispatch(setBoards(response.data))
 }

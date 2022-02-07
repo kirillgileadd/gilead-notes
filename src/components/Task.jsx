@@ -19,7 +19,7 @@ const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) =
     <Paper draggable={true} sx={{ mb: 2, mt: 2, p: 1, borderRadius: '20px', display: 'flex', flexDirection: 'column', maxHeight: '200px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
         <Typography variant={'subtitle1'}>
-          {title}
+          {title || 'Untitled'}
         </Typography>
         {
           currentCategory && <Catygory color={currentCategory?.color} backgroundColor={alpha(currentCategory?.color, 0.1)}>
