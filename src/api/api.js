@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: `http://localhost:3001/`,
+  baseURL: `/`,
   headers: {
     'Content-Type': 'application/json'
   },
@@ -15,12 +15,12 @@ export const boardsAPI = {
     return instance.delete(`tasks/${id}`)
   },
   postTask(task) {
-    return axios.post(`http://localhost:3001/tasks`, {
+    return axios.post(`/tasks`, {
       ...task
     } )
   },
   postCategory(category) {
-    return axios.post(`http://localhost:3001/categories`, {
+    return axios.post(`/categories`, {
       ...category
     } )
   },
