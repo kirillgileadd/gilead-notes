@@ -15,9 +15,9 @@ export const fetchBoards = (currentPage, currentCategoryItem ) => async (dispatc
 };
 
 export const deleteTaskThunk = (id, listId) => async (dispatch) => {
-  dispatch(deleteTaskAction(id, listId))
   try {
-    let response = await boardsAPI.deleteTask(id);
+    let response = await tasksAPI.deleteTask(id);
+    dispatch(deleteTaskAction(id, listId))
   } catch (err) {
     console.log(err)
   }
@@ -25,7 +25,7 @@ export const deleteTaskThunk = (id, listId) => async (dispatch) => {
 
 export const postTaskThunk = (newTask, listId) => async (dispatch) => {
   try {
-    let response = await boardsAPI.postTask(newTask);
+    let response = await tasksAPI.postTask(newTask);
     dispatch(addTaskAction(newTask, listId))
   } catch (err) {
     console.log('Something failed')

@@ -4,7 +4,8 @@ import '../App.css';
 import AddTaskForm from './AddTaskForm';
 import { useId } from 'react-id-generator';
 import { useSelector } from 'react-redux';
-
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -21,12 +22,8 @@ const style = {
 
 
 function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
-  const {totalCount} = useSelector(({boards}) => boards)
-  const [htmlId] = useId();
 
   const onSubmit = (data) => {
-    let catId = Number(totalCount ) + Number(htmlId[2])
-    console.log(catId)
     let newTask = {
       ...data,
       listId
@@ -44,8 +41,14 @@ function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
       >
         <Box
           sx={style}
+          display={'flex'}
+          alignItems={'flex-start'}
+          justifyContent={'space-between'}
         >
         <AddTaskForm onSubmit={onSubmit}/>
+          <IconButton onClick={() => setOpenModal(false)}>
+            <CloseIcon/>
+          </IconButton>
         </Box>
       </Modal>
     </div>

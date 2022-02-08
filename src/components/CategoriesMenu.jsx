@@ -5,12 +5,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import { ListItemIcon, Typography } from '@mui/material';
+import { Box, ListItemIcon, Typography } from '@mui/material';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryAction } from '../redux/actions/filter';
 import { clearBoards, fetchBoards } from '../redux/actions/boards';
-import { fetchCategories } from '../redux/actions/categories';
+import { deleteCategoryThunk, fetchCategories } from '../redux/actions/categories';
+import IconButton from '@mui/material/IconButton';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function CategoriesMenu() {
   const dispatch = useDispatch()
@@ -34,6 +36,12 @@ function CategoriesMenu() {
   useEffect(() => {
     dispatch(fetchCategories())
   }, [])
+
+  const deleteCategory = (id) => {
+    if(window.confirm('Do you really want to delete a category?')){
+      dispatch(deleteCategoryThunk(id))
+    }
+  }
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -81,6 +89,11 @@ function CategoriesMenu() {
           'aria-labelledby': 'lock-button',
           role: 'listbox',
         }}
+        sx={{
+          '& .Mui-selected': {
+            backgroundColor: 'transparent'
+          }
+        }}
       >
         <MenuItem
           selected={currentCategory === null}
@@ -89,16 +102,21 @@ function CategoriesMenu() {
           All Category
         </MenuItem>
         {categoryList.map((option, index) => (
+          <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
           <MenuItem
-            sx={{p: 0}}
+            sx={{p: 0, width: '100%'}}
             key={option.name}
             selected={index === currentCategory}
             onClick={(event) => handleMenuItemClick(event, option.id)}
           >
-            <Typography sx={{width: '100%', height: '100%', p: 1, textAlign: 'center'}} color={option?.color}>
+            <Typography sx={{width: '100%', height: '100%', p: 1}} color={option?.color}>
               {option.name}
             </Typography>
           </MenuItem>
+            <IconButton onClick={() => deleteCategory(option.id)}>
+              <DeleteOutlineIcon/>
+            </IconButton>
+          </Box>
         ))}
       </Menu>
     </div>

@@ -19,6 +19,12 @@ export const categories = (state = initialState, action) => {
         categoryList: [...state.categoryList, action.payload]
       };
     }
+    case 'DELETE_CATEGORY': {
+      return {
+        ...state,
+        categoryList: [...state.categoryList.filter(el => el.id !== action.payload)]
+      };
+    }
     case 'SET_CATEGORIES_LOADING': {
       return {
         ...state,

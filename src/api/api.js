@@ -10,6 +10,12 @@ const instance = axios.create({
 export const boardsAPI = {
   getBoards(page, currentCategoryItem) {
     return instance.get(`tasks?_limit=6&${page ? `_page=${page}` : ''}&${currentCategoryItem ? `category=${currentCategoryItem?.name}` : ''}`)
+  }
+}
+
+export const tasksAPI = {
+  getTask(id) {
+    return instance.get(`tasks/${id}`)
   },
   deleteTask(id) {
     return instance.delete(`tasks/${id}`)
@@ -19,6 +25,9 @@ export const boardsAPI = {
       ...task
     } )
   },
+}
+
+export const categoryAPI = {
   postCategory(category) {
     return axios.post(`/categories`, {
       ...category
@@ -27,13 +36,10 @@ export const boardsAPI = {
   getCategories() {
     return instance.get(`categories`)
   },
+  deleteCategory(id) {
+    return instance.delete(`categories/${id}`)
+  },
   changeCategories(currentCategoryItem) {
     return instance.get(`tasks?${currentCategoryItem ? `category=${currentCategoryItem?.name}` : ''}&_page=1&_limit=6`)
   },
-}
-
-export const tasksAPI = {
-  getTask(id) {
-    return instance.get(`tasks/${id}`)
-  }
 }

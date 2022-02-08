@@ -1,4 +1,5 @@
-import { boardsAPI } from '../../api/api';
+import { boardsAPI, categoryAPI, tasksAPI } from '../../api/api';
+import { deleteTaskAction } from './boards';
 
 export const setCategories = (data) => ({
     type: 'SET_CATEGORIES',
@@ -13,22 +14,35 @@ export const setCategoriesLoading = (data) => ({
     type: 'SET_CATEGORIES_LOADING',
     payload: data
 })
+export const deleteCategoryAction = (id) => ({
+    type: 'DELETE_CATEGORY',
+    payload: id
+})
 
 export const fetchCategories = () => async  (dispatch) =>  {
-  let response = await boardsAPI.getCategories()
+  let response = await categoryAPI.getCategories()
   dispatch(setCategories(response.data))
 }
 
-export const changeCategories = (currentCategoryItem) => async  (dispatch) =>  {
-  let response = await boardsAPI.changeCategories(currentCategoryItem)
-  // dispatch(setBoards(response.data))
-}
+// export const changeCategories = (currentCategoryItem) => async  (dispatch) =>  {
+//   let response = await categoryAPI.changeCategories(currentCategoryItem)
+//   // dispatch(setBoards(response.data))
+// }
 export const addCategoryThunk = (category) => async  (dispatch) =>  {
   try {
-    let response = await boardsAPI.postCategory(category)
+    let response = await categoryAPI.postCategory(category)
     dispatch(addCategory(category))
   } catch (e) {
     console.log(e)
   }
-  // dispatch(setBoards(response.data))
 }
+
+export const deleteCategoryThunk = (id) => async (dispatch) => {
+
+  try {
+    let response = await categoryAPI.deleteCategory(id);
+    dispatch(deleteCategoryAction(id))
+  } catch (err) {
+    console.log(err)
+  }
+};
