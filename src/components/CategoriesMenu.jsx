@@ -102,10 +102,9 @@ function CategoriesMenu() {
           All Category
         </MenuItem>
         {categoryList.map((option, index) => (
-          <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+          <Box key={option.name} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
           <MenuItem
             sx={{p: 0, width: '100%'}}
-            key={option.name}
             selected={index === currentCategory}
             onClick={(event) => handleMenuItemClick(event, option.id)}
           >

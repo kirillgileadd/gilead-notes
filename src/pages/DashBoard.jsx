@@ -3,6 +3,7 @@ import DashItem from '../components/DashItem';
 import { Box, Grid, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBoards, setFetching } from '../redux/actions/boards';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 const dashItemsNames = ['To do', 'In Progress', 'Completed'];
 
@@ -13,9 +14,9 @@ const DashBoard = () => {
   const { currentPage } = useSelector(({ boards }) => boards);
   const { cards } = useSelector(({ boards }) => boards);
   const { totalCount } = useSelector(({ boards }) => boards);
-  const {currentCategory} = useSelector(({filter}) => filter)
+  const { currentCategory } = useSelector(({ filter }) => filter);
   const data = useSelector(({ boards }) => boards);
-  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory)
+  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory);
 
   useEffect(() => {
     if (fetching) {
@@ -41,12 +42,32 @@ const DashBoard = () => {
     <Box sx={{ textAlign: 'left', p: 4, pb: 0 }}>
       <Typography variant={'h5'} sx={{ mb: 4, fontWeight: '500' }}>Notes</Typography>
       <Grid container spacing={3} sx={{ display: 'flex', height: '100vh' }}>
-        {
-          data.listIds.map((listId, index) => {
-            const board = data.items[listId];
-            return <DashItem totalCount={totalCount} board={board} categoryList={categoryList} key={listId} index={index} />;
-          })
-        }
+        <DragDropContext onDragEnd={result => console.log(result)}>
+          {
+            data.listIds.map((listId, index) => {
+              const board = data.items[listId];
+              return (
+                <Droppable key={listId} droppableId={listId}>
+                  {(provided, snapshot) => {
+                    return (
+                      <Grid item xs={4}
+                        {...provided.draggableProps}
+                        ref={provided.innerRef}
+                      >
+                        <DashItem
+                                  totalCount={totalCount}
+                                  board={board}
+                                  categoryList={categoryList}
+                                  index={index} />
+                      </Grid>
+
+                    );
+                  }}
+                </Droppable>
+              );
+            })
+          }
+        </DragDropContext>
       </Grid>
     </Box>
   );

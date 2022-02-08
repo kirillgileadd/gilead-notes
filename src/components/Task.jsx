@@ -16,7 +16,7 @@ const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) =
   let currentCategory = categoryList.find((cat) => cat.name === category)
 
   return (
-    <Paper draggable={true} sx={{ mb: 2, mt: 2, p: 1, borderRadius: '20px', display: 'flex', flexDirection: 'column', maxHeight: '200px' }}>
+    <Paper sx={{ p: 1, borderRadius: '20px', display: 'flex', flexDirection: 'column', maxHeight: '200px' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
         <Typography variant={'subtitle1'}>
           {title || 'Untitled'}
