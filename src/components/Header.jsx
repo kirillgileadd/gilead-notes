@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Typography } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -10,6 +10,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearch } from '../redux/actions/filter';
+import { clearBoards, fetchBoards, searchTasks } from '../redux/actions/boards';
+import useDebounce from '../hooks/useDebounce';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -61,14 +63,28 @@ const StyledAppBar = styled(AppBar)(({}) => ({
 
 const Header = () => {
   const dispatch = useDispatch()
-  const {search} = useSelector(({filter}) => filter)
+  const { categoryList } = useSelector(({ categories }) => categories);
+  const { currentCategory } = useSelector(({ filter }) => filter);
+  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory);
   const [searchValue, setSearchValue] = useState('')
+  const mounted = useRef();
+
+  const debouncedSearchTerm = useDebounce(searchValue, 300);
 
   const handleSearchValue = (e) => {
     const {value} = e.target
     setSearchValue(value)
-    // dispatch(setSearch(value))
   }
+
+  useEffect(() => {
+    if(!mounted.current) {
+      mounted.current = true
+    } else {
+      dispatch(clearBoards())
+      dispatch(fetchBoards(null, currentCategoryItem, debouncedSearchTerm   ))
+    }
+  }, [debouncedSearchTerm])
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>

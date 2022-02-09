@@ -61,6 +61,31 @@ export const boards = (state = initialState, action) => {
         loading: false
       };
     }
+    case 'SET_SEARCH_BOARDS': {
+      const setTasks = (action, id) => {
+        return action.filter(obj => obj.listId === id)
+      }
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [`list-1`]: {
+            ...state.items[`list-1`],
+            tasks: [...setTasks(action.payload, 1)]
+          },
+          [`list-2`]: {
+            ...state.items[`list-2`],
+            tasks: [...setTasks(action.payload, 2)]
+          },
+          [`list-3`]: {
+            ...state.items[`list-3`],
+            tasks: [...setTasks(action.payload, 3)]
+          }
+        },
+        cards: [...state.cards, ...action.payload],
+        loading: false
+      };
+    }
     case 'SET_TOTAL_COUNT': {
       return {
         ...state,

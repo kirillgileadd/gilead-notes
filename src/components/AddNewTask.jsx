@@ -2,7 +2,7 @@ import { Box, Modal } from '@mui/material';
 import * as React from 'react';
 import '../App.css';
 import AddTaskForm from './AddTaskForm';
-import { useId } from 'react-id-generator';
+import nextId, { useId } from 'react-id-generator';
 import { useSelector } from 'react-redux';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -22,9 +22,14 @@ const style = {
 
 
 function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
+  const {totalCount} = useSelector(({boards}) => boards)
 
   const onSubmit = (data) => {
+    let htmlId = nextId()
+    let newId = Number(htmlId[2]) + Number(totalCount)
+    console.log(newId)
     let newTask = {
+      id: newId,
       ...data,
       listId
     };

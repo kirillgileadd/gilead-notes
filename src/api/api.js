@@ -9,7 +9,10 @@ const instance = axios.create({
 
 export const boardsAPI = {
   getBoards(page, currentCategoryItem) {
-    return instance.get(`tasks?_limit=6&${page ? `_page=${page}` : ''}&${currentCategoryItem ? `category=${currentCategoryItem?.name}` : ''}`)
+    return instance.get(`tasks?_limit=10&${page ? `_page=${page}` : ''}&${currentCategoryItem ? `category=${currentCategoryItem?.name}` : ''}`)
+  },
+  searchTasks(page, currentCategoryItem, search) {
+    return instance.get( `tasks?_limit=10&${page ? `_page=${page}` : ''}&${currentCategoryItem ? `category=${currentCategoryItem?.name}` : ''}&${search ? `q=${search}` : ''}`)
   }
 }
 
@@ -38,8 +41,5 @@ export const categoryAPI = {
   },
   deleteCategory(id) {
     return instance.delete(`categories/${id}`)
-  },
-  changeCategories(currentCategoryItem) {
-    return instance.get(`tasks?${currentCategoryItem ? `category=${currentCategoryItem?.name}` : ''}&_page=1&_limit=6`)
   },
 }

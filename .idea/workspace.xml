@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1a33c890-e54d-4293-981a-ab6961a61fb8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddNewTask.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddNewTask.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/DashBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashBoard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/actions/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/boards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/boards.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,9 @@
       <workItem from="1643871012047" duration="604000" />
       <workItem from="1644231996478" duration="12269000" />
       <workItem from="1644248968386" duration="7512000" />
-      <workItem from="1644305821027" duration="8704000" />
+      <workItem from="1644305821027" duration="10023000" />
+      <workItem from="1644326253659" duration="5971000" />
+      <workItem from="1644411060021" duration="642000" />
     </task>
     <servers />
   </component>

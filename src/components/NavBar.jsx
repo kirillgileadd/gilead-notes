@@ -19,7 +19,6 @@ const MyMenuItem = styled(MenuItem)(({ theme }) => ({
 
 const NavBar = () => {
   const pathname = useLocation();
-  console.log(pathname.pathname);
 
   return (
     <Grid item xs={2} sx={{ height: '100%', borderRight: '1px solid #ededed', textAlign: 'left' }}>

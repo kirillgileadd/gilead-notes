@@ -1,12 +1,21 @@
 import { boardsAPI, tasksAPI } from '../../api/api';
 
-export const fetchBoards = (currentPage, currentCategoryItem ) => async (dispatch) => {
-  dispatch(setLoading(true))
+export const fetchBoards = (currentPage = 1, currentCategoryItem, debouncedSearchTerm ) => async (dispatch) => {
+  if(currentPage === 1) {
+    dispatch(setLoading(true))
+  }
   try {
+    if(debouncedSearchTerm) {
+      let response = await boardsAPI.searchTasks(currentPage, currentCategoryItem, debouncedSearchTerm)
+      dispatch(setBoards(response.data));
+      dispatch(setTotalCount(response.headers["x-total-count"]))
+      dispatch(setCurrentPage(currentPage))
+    } else {
       let response = await boardsAPI.getBoards(currentPage, currentCategoryItem);
       dispatch(setBoards(response.data));
       dispatch(setTotalCount(response.headers["x-total-count"]))
       dispatch(setCurrentPage(currentPage))
+    }
   } catch (err) {
     console.log('Something failed')
   } finally {
@@ -43,6 +52,11 @@ export const fetchDetailTask = (id, setTask) => async (dispatch) => {
 
 export const setBoards = (boards) => ({
     type: 'SET_BOARDS',
+    payload: boards
+});
+
+export const setSearchBoards = (boards) => ({
+    type: 'SET_SEARCH_BOARDS',
     payload: boards
 });
 
