@@ -68,7 +68,7 @@ const DashItem = ({ title, board, categoryList, totalCount }) => {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      sx={{mb: 1, mt: 1}}
+                      sx={{mt: 1}}
                     >
                       <Task
 

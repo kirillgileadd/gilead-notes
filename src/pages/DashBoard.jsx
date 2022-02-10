@@ -2,29 +2,12 @@ import React, { useEffect, useState } from 'react';
 import DashItem from '../components/DashItem';
 import { Box, Grid, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchBoards, setFetching } from '../redux/actions/boards';
+import { fetchBoards, onDragEndAction, onDrugEndThunk, setFetching } from '../redux/actions/boards';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 const dashItemsNames = ['To do', 'In Progress', 'Completed'];
 
-const onDragEnd = (result, columns, setColumns) => {
-  if(!result.destination) return;
-  const { source, destination} = result
 
-  const sourceColumn = columns[source.droppableId];
-  const destColumn = columns[destination.droppableId];
-  const sourceItems = [...sourceColumn.items];
-  const destItems = [...destColumn.items];
-  const [removed] = sourceItems.splice(source.index, 1);
-  destItems.splice(destination.index, 0, removed);
-  setColumns({
-    ...columns,
-    [source.droppableId]: {
-      ...sourceColumn,
-      items: sourceItems
-    }
-  });
-}
 
 const DashBoard = () => {
   const dispatch = useDispatch();
@@ -36,6 +19,22 @@ const DashBoard = () => {
   const { currentCategory } = useSelector(({ filter }) => filter);
   const data = useSelector(({ boards }) => boards);
   const currentCategoryItem = categoryList.find((item) => item.id === currentCategory);
+
+  const onDragEnd = (result, columns) => {
+    if(!result.destination) return;
+   // // const destColumn = columns[destination.droppableId];
+    dispatch(onDrugEndThunk(result, columns))
+   // // const destItems = [...destColumn.items];
+   //  const [removed] = sourceItems.splice(source.index, 1);
+   //  sourceItems.splice(destination.index, 0, removed);
+   //  setColumns({
+   //    ...columns,
+   //    [source.droppableId]: {
+   //      ...sourceColumn,
+   //      items: sourceItems
+   //    }
+   //  });
+  }
 
   useEffect(() => {
     if (fetching) {
@@ -61,7 +60,10 @@ const DashBoard = () => {
     <Box sx={{ textAlign: 'left', p: 4, pb: 0 }}>
       <Typography variant={'h5'} sx={{ mb: 4, fontWeight: '500' }}>Notes</Typography>
       <Grid container spacing={3} sx={{ display: 'flex', height: '100vh' }}>
-        <DragDropContext onDragEnd={result => console.log(result)}>
+        <DragDropContext onDragEnd={result => {
+          console.log(result)
+          onDragEnd(result, data.items);
+        }}>
           {
             data.listIds.map((listId, index) => {
               const board = data.items[listId];

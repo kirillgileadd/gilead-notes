@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: `/`,
+  baseURL: ``,
   headers: {
     'Content-Type': 'application/json'
   },
@@ -19,6 +19,11 @@ export const boardsAPI = {
 export const tasksAPI = {
   getTask(id) {
     return instance.get(`tasks/${id}`)
+  },
+  putTaskListId(tasksId, newTask) {
+    return instance.put(`tasks/${tasksId}`, {
+      ...newTask
+    })
   },
   deleteTask(id) {
     return instance.delete(`tasks/${id}`)

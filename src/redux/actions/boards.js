@@ -50,6 +50,39 @@ export const fetchDetailTask = (id, setTask) => async (dispatch) => {
   }
 };
 
+export const onDrugEndThunk = (result, columns) => async (dispatch) => {
+  try {
+    const { source, destination, draggableId } = result;
+    if (source.droppableId !== destination.droppableId) {
+      const sourceColumn = columns[source.droppableId];
+      const destColumn = columns[destination.droppableId];
+      const sourceItems = [...sourceColumn.tasks];
+      const destItems = [...destColumn.tasks];
+      const [removed] = sourceItems.splice(source.index, 1);
+      destItems.splice(destination.index, 0, removed);
+      // console.log([Number(draggableId)])
+      // let newListonTask ={
+      //   ...destItems.find((el) => el.id === Number(draggableId)),
+      //   listId: Number(destination.droppableId[5])
+      // }
+      // console.log(newListonTask)
+      // const response = await tasksAPI.putTaskListId([Number(draggableId)], newListonTask)
+        dispatch(listDragEnd(source, sourceItems, destination, destItems))
+
+    } else {
+      const sourceColumn = columns[source.droppableId];
+      const sourceItems = [...sourceColumn.tasks];
+      const [removed] = sourceItems.splice(source.index, 1);
+      sourceItems.splice(destination.index, 0, removed);
+      // let listId = source.droppableId[5]
+      // const response = await tasksAPI.putTasks(sourceItems, listId)
+      dispatch(onDragEndAction(source, sourceItems))
+    }
+  } catch (err) {
+    console.log(err)
+  }
+};
+
 export const setBoards = (boards) => ({
     type: 'SET_BOARDS',
     payload: boards
@@ -92,4 +125,14 @@ export const setLoading = (body) => ({
 export const setFetching = (body) => ({
     type: 'SET_FETCHING',
     payload: body
+});
+
+export const onDragEndAction = (source, sourceItems) => ({
+    type: 'DRAG_END',
+    payload: { source, sourceItems }
+});
+
+export const listDragEnd = (source, sourceItems, destination, destItems) => ({
+    type: 'LIST_DRAG_END',
+    payload: { source, sourceItems ,destination, destItems }
 });

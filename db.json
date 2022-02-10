@@ -2,80 +2,38 @@
   "tasks": [
     {
       "id": 1,
-      "title": "Direct Directives Architect",
-      "listId": 3,
+      "title": "new note",
+      "text": "text",
       "category": "Technologies",
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    },
-    {
-      "title": "Direct Directives Architect",
-      "listId": 1,
-      "category": "Technologies",
-      "id": 2,
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    },
-    {
-      "title": "Chief Directives Representative",
-      "listId": 2,
-      "category": "Program",
-      "id": 3,
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    },
-    {
-      "title": "Chief Directives Representative",
-      "listId": 1,
-      "category": "Technologies",
-      "id": 4,
-      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-    },
-    {
-      "title": "One more note",
-      "text": "lorem",
-      "category": "Python",
-      "listId": 3,
-      "id": 5
-    },
-    {
-      "id": 6,
-      "title": "ASDASD",
-      "text": "ASDFVBDSFG",
-      "category": "Python",
-      "listId": 2
-    },
-    {
-      "id": 7,
-      "title": "KL",
-      "text": "L';KL;",
-      "category": "Python",
-      "listId": 3
-    },
-    {
-      "id": 8,
-      "title": "ASDASDASD",
-      "text": "1111111111111111111111",
-      "category": "Design",
-      "listId": 2
-    },
-    {
-      "id": 9,
-      "title": "asdas",
-      "text": "lllllllllll",
-      "category": "Design",
-      "listId": 2
-    },
-    {
-      "id": 10,
-      "title": "New note ",
-      "text": "new note about photo skills",
-      "category": "Photo",
       "listId": 1
     },
     {
-      "id": 11,
-      "title": "One more note about Photo",
-      "text": "lorem",
+      "id": 2,
+      "title": "Desing",
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "category": "Design",
+      "listId": 2
+    },
+    {
+      "id": 3,
+      "title": "Note about photos",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
       "category": "Photo",
       "listId": 3
+    },
+    {
+      "id": 4,
+      "title": "One more note",
+      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "category": "Program",
+      "listId": 1
+    },
+    {
+      "id": 5,
+      "title": "Green JavaScript",
+      "text": "LOREM",
+      "category": "JS",
+      "listId": 2
     }
   ],
   "categories": [
@@ -95,14 +53,14 @@
       "color": "#da42f5"
     },
     {
-      "color": "#3b1b2e",
-      "id": 4,
-      "name": "Python"
-    },
-    {
       "color": "#527e18",
       "id": 5,
       "name": "Photo"
+    },
+    {
+      "color": "#13cf4e",
+      "id": 6,
+      "name": "JS"
     }
   ]
 }
