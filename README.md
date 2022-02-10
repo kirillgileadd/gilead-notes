@@ -1,4 +1,4 @@
-# Gilade note
+# Gilead notes
 Task board with drag n drop
 
 ![Preview](./src/assets/preview.jpg)
