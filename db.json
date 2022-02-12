@@ -34,6 +34,13 @@
       "text": "LOREM",
       "category": "JS",
       "listId": 2
+    },
+    {
+      "id": 7,
+      "title": "One more task about Program",
+      "text": "Lorem loremloremloremloremloremlorem",
+      "category": "Program",
+      "listId": 3
     }
   ],
   "categories": [

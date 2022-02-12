@@ -22,18 +22,7 @@ const DashBoard = () => {
 
   const onDragEnd = (result, columns) => {
     if(!result.destination) return;
-   // // const destColumn = columns[destination.droppableId];
     dispatch(onDrugEndThunk(result, columns))
-   // // const destItems = [...destColumn.items];
-   //  const [removed] = sourceItems.splice(source.index, 1);
-   //  sourceItems.splice(destination.index, 0, removed);
-   //  setColumns({
-   //    ...columns,
-   //    [source.droppableId]: {
-   //      ...sourceColumn,
-   //      items: sourceItems
-   //    }
-   //  });
   }
 
   useEffect(() => {

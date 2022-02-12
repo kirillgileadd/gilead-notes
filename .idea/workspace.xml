@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1a33c890-e54d-4293-981a-ab6961a61fb8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DetailTask.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DetailTask.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/DashBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashBoard.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +55,23 @@
       <recent name="C:\Users\Stalin\Desktop\react\gilead-to-do" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -92,7 +113,8 @@
       <workItem from="1644305821027" duration="10023000" />
       <workItem from="1644326253659" duration="5971000" />
       <workItem from="1644411060021" duration="1240000" />
-      <workItem from="1644489670347" duration="9351000" />
+      <workItem from="1644489670347" duration="9355000" />
+      <workItem from="1644645649528" duration="1812000" />
     </task>
     <servers />
   </component>
