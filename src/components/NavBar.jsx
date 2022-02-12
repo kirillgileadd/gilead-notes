@@ -1,14 +1,12 @@
 import React from 'react';
 import { Box, Grid, ListItemIcon, ListItemText, MenuItem, MenuList, Typography } from '@mui/material';
 import styled from '@emotion/styled';
-import { theme } from '../theme/theme';
 import { Link, useLocation } from 'react-router-dom';
 import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 import '../App.css';
 import CategoriesMenu from './CategoriesMenu';
-import logo from '../assets/finalLogo.svg'
-
+import logo from '../assets/finalLogo.svg';
 
 
 const MyMenuItem = styled(MenuItem)(({ theme }) => ({
@@ -29,7 +27,8 @@ const NavBar = () => {
         </Box>
         <MenuList dense sx={{
           '& .Mui-selected': {
-            borderRight: `5px solid ${theme.palette.primary.main}`,
+            borderRight: `5px solid`,
+            borderColor: 'primary.main',
             transition: "all 0.3s",
             backgroundColor: 'inherit'
           },

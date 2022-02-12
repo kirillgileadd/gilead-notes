@@ -5,7 +5,7 @@
       "title": "new note",
       "text": "text",
       "category": "Technologies",
-      "listId": 1
+      "listId": 3
     },
     {
       "id": 2,
@@ -16,30 +16,37 @@
     },
     {
       "id": 3,
-      "title": "Note about photos",
-      "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "category": "Photo",
-      "listId": 3
-    },
-    {
-      "id": 4,
       "title": "One more note",
       "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
       "category": "Program",
       "listId": 1
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Green JavaScript",
       "text": "LOREM",
       "category": "JS",
+      "listId": 1
+    },
+    {
+      "id": 5,
+      "title": "One more task about Program",
+      "text": "Lorem loremloremloremloremloremlorem",
+      "category": "Program",
       "listId": 2
     },
     {
       "id": 7,
-      "title": "One more task about Program",
-      "text": "Lorem loremloremloremloremloremlorem",
-      "category": "Program",
+      "title": "New task",
+      "text": "lorem",
+      "category": "JS",
+      "listId": 3
+    },
+    {
+      "id": 0.03797180030985703,
+      "title": "Task about Design",
+      "text": "lorem? ",
+      "category": "Design",
       "listId": 3
     }
   ],

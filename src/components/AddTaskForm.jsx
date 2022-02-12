@@ -61,8 +61,10 @@ const AddTaskForm = ({ onSubmit }) => {
   };
 
   const addNewCategory = (name) => {
-    let catId = categoryList.length + 1;
-    console.log(catId);
+    let catId;
+    categoryList.find((el) => {
+      catId = Math.max(el.id) + 1;
+    });
     let color = Math.floor(Math.random() * 16777215).toString(16);
     let newCategory = {
       color: `#${color}`, id: catId, name
@@ -85,7 +87,6 @@ const AddTaskForm = ({ onSubmit }) => {
         name={'title'}
         type='text'
         error={!!errors.title}
-        helperText={errors?.title?.message}
       />
       <Box display={'flex'}>
         <Box width={'100%'}>
@@ -123,12 +124,11 @@ const AddTaskForm = ({ onSubmit }) => {
               name={'category'}
               type='text'
               error={!!errors.category}
-              helperText={errors?.category?.message}
               value={categoryValue}
               label='Select Category'
               onChange={handleChange}
             >
-              {categoryList.map((item) => <MenuItem sx={{ color: item.color }}
+              {categoryList.map((item) => <MenuItem key={item.id} sx={{ color: item.color }}
                                                     value={item.name}>{item.name}</MenuItem>)}
             </Select>
           </FormControl>

@@ -60,22 +60,17 @@ export const onDrugEndThunk = (result, columns) => async (dispatch) => {
       const destItems = [...destColumn.tasks];
       const [removed] = sourceItems.splice(source.index, 1);
       destItems.splice(destination.index, 0, removed);
-      // console.log([Number(draggableId)])
-      // let newListonTask ={
-      //   ...destItems.find((el) => el.id === Number(draggableId)),
-      //   listId: Number(destination.droppableId[5])
-      // }
-      // console.log(newListonTask)
-      // const response = await tasksAPI.putTaskListId([Number(draggableId)], newListonTask)
-        dispatch(listDragEnd(source, sourceItems, destination, destItems))
-
+      dispatch(listDragEnd(source, sourceItems, destination, destItems))
+      let newListonTask ={
+        ...destItems.find((el) => el.id === Number(draggableId)),
+        listId: parseInt(destination.droppableId.match(/\d+/))
+      }
+      const response = await tasksAPI.putTaskListId([Number(draggableId)], newListonTask)
     } else {
       const sourceColumn = columns[source.droppableId];
       const sourceItems = [...sourceColumn.tasks];
       const [removed] = sourceItems.splice(source.index, 1);
       sourceItems.splice(destination.index, 0, removed);
-      // let listId = source.droppableId[5]
-      // const response = await tasksAPI.putTasks(sourceItems, listId)
       dispatch(onDragEndAction(source, sourceItems))
     }
   } catch (err) {
@@ -85,11 +80,6 @@ export const onDrugEndThunk = (result, columns) => async (dispatch) => {
 
 export const setBoards = (boards) => ({
     type: 'SET_BOARDS',
-    payload: boards
-});
-
-export const setSearchBoards = (boards) => ({
-    type: 'SET_SEARCH_BOARDS',
     payload: boards
 });
 
