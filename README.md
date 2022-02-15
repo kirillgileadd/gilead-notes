@@ -1,6 +1,8 @@
 # Gilead notes
 Task board with drag n drop
 
+Heroku - [Gilead Notes](https://gilead-notes.herokuapp.com/)
+
 ![Preview](./src/assets/preview.jpg)
 
 
