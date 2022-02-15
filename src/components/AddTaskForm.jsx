@@ -20,12 +20,10 @@ import IconButton from '@mui/material/IconButton';
 import { addCategoryThunk } from '../redux/actions/categories';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import useYup from '@usereact/use-yup';
 
 
 const TitleInput = styled(InputBase)(({ theme }) => ({
   color: theme.palette.secondary.main, fontSize: '60px', '& .MuiInputBase-input': {
-    // padding: theme.spacing(1, 1, 1, 0),
     transition: theme.transitions.create('width'), width: '100%', height: '100px'
   }
 }));

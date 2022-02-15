@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1a33c890-e54d-4293-981a-ab6961a61fb8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddNewTask.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddNewTask.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddTaskForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddTaskForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/boards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +113,9 @@
       <workItem from="1644411060021" duration="1240000" />
       <workItem from="1644489670347" duration="9355000" />
       <workItem from="1644645649528" duration="2092000" />
-      <workItem from="1644649632688" duration="4247000" />
+      <workItem from="1644649632688" duration="4873000" />
+      <workItem from="1644792411917" duration="83000" />
+      <workItem from="1644946563407" duration="380000" />
     </task>
     <servers />
   </component>

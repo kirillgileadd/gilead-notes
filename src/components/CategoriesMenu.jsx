@@ -75,7 +75,7 @@ function CategoriesMenu() {
             <CategoryOutlinedIcon className={'icon'}/>
           </ListItemIcon>
           <ListItemText
-            primary="Category"
+            primary="Categories"
             secondary={currentCategoryItem?.name || 'All categories'}
           />
         </ListItem>
@@ -99,7 +99,7 @@ function CategoriesMenu() {
           selected={currentCategory === null}
           onClick={(e) => handleMenuItemClick(e,null)}
         >
-          All Category
+          All Categories
         </MenuItem>
         {categoryList.map((option, index) => (
           <Box key={option.name} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
