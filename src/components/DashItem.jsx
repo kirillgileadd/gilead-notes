@@ -65,37 +65,45 @@ const DashItem = ({ title, board, categoryList, totalCount }) => {
           >+
           </Typography>
         </CustomButton>
-        {
-          !loading ? board.tasks.map((obj, index) => {
-            return (
-              <Draggable key={obj.id} draggableId={String(obj.id)} index={index}>
-                {(provided, snapshot) => {
-                  return (
-                    <Box
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      sx={{ mt: 1 }}
-                    >
-                      <Task
+        <Box>
+          {
+            !loading ? board.tasks.map((obj, index) => {
+              return (
+                <Draggable key={obj.id} draggableId={String(obj.id)} index={index}>
+                  {(provided, snapshot) => {
+                    return (
+                      <Box
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        sx={{ mt: 1 }}
+                      >
+                        <Task
 
-                        {...obj}
-                        categoryList={categoryList}
-                        deleteTask={deleteTask}
-                        style={{
-                          ...provided.draggableProps.style
-                        }}
-                      />
-                    </Box>
-                  );
-                }}
-              </Draggable>
-            );
-          }) : <LoadingBoards />
-        }
+                          {...obj}
+                          categoryList={categoryList}
+                          deleteTask={deleteTask}
+                          style={{
+                            ...provided.draggableProps.style
+                          }}
+                        />
+                      </Box>
+                    );
+                  }}
+                </Draggable>
+              );
+            }) : <LoadingBoards />
+          }
+        </Box>
       </CustomPaper>
-      <AddNewTask listId={listId} totalCount={totalCount} setOpenModal={setOpenModal} open={openModal} addTask={addTask}
-                  handleCloseModal={handleCloseModal} />
+      <AddNewTask
+        listId={listId}
+        totalCount={totalCount}
+        setOpenModal={setOpenModal}
+        open={openModal}
+        addTask={addTask}
+        handleCloseModal={handleCloseModal}
+      />
     </>
   );
 };

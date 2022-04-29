@@ -9,11 +9,6 @@ export const addCategory = (value) => ({
     payload: value
 })
 
-export const setCategoriesLoading = (data) => ({
-    type: 'SET_CATEGORIES_LOADING',
-    payload: data
-})
-
 export const deleteCategoryAction = (id) => ({
     type: 'DELETE_CATEGORY',
     payload: id
@@ -27,17 +22,18 @@ export const fetchCategories = () => async  (dispatch) =>  {
 export const addCategoryThunk = (category) => async  (dispatch) =>  {
   try {
     let response = await categoryAPI.postCategory(category)
-    dispatch(addCategory(category))
+    dispatch(addCategory(response.data))
   } catch (e) {
     console.log(e)
   }
 }
 
 export const deleteCategoryThunk = (id) => async (dispatch) => {
-
   try {
     let response = await categoryAPI.deleteCategory(id);
-    dispatch(deleteCategoryAction(id))
+    if(response.status === 200) {
+      dispatch(deleteCategoryAction(id))
+    }
   } catch (err) {
     console.log(err)
   }

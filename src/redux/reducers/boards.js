@@ -79,16 +79,40 @@ export const boards = (state = initialState, action) => {
       };
     }
     case 'ADD_TASK': {
+      const {listId} = action.payload
       return {
         ...state,
         items: {
           ...state.items,
-          [`list-${action.payload.listId}`]: {
-            ...state.items[`list-${action.payload.listId}`],
-            tasks: state.items[`list-${action.payload.listId}`].tasks ? [action.payload.task, ...state.items[`list-${action.payload.listId}`].tasks] : [action.payload.task]
+          [`list-${listId}`]: {
+            ...state.items[`list-${listId}`],
+            tasks: state.items[`list-${listId}`].tasks ? [action.payload, ...state.items[`list-${listId}`].tasks] : [action.payload]
           }
         },
         cards: [...state.cards, action.payload.task]
+      };
+    }
+    case 'PUT_TASK': {
+      const {listId} = action.payload
+      return {
+        ...state,
+        items: {
+          ...state.items,
+          [`list-${listId}`]: {
+            ...state.items[`list-${listId}`],
+            tasks: state.items[`list-${listId}`].tasks.map((task) => {
+              if (task.id === action.payload.id) {
+                return {
+                  ...action.payload,
+                }
+              } else {
+                return {
+                  ...task
+                }
+              }
+            })
+          }
+        },
       };
     }
     case 'DELETE_TASK': {

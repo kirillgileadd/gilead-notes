@@ -59,11 +59,11 @@ const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) =
         <Typography variant='subtitle1'>
           {title || 'Untitled'}
         </Typography>
-          <Category
-            color={currentCategory.color}
-            backgroundColor={alpha(currentCategory.color, 0.1)}>
-            {currentCategory.name}
-          </Category>
+        {currentCategory && <Category
+          color={currentCategory.color}
+          backgroundColor={alpha(currentCategory.color, 0.1)}>
+          {currentCategory.name}
+        </Category>}
       </TaskInner>
       <TaskText
         variant={'body2'}

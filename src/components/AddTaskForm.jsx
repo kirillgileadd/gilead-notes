@@ -39,9 +39,9 @@ const Form = styled('form')(({ theme }) => ({
 
 const AddTaskForm = ({ onSubmit }) => {
   const schema = yup.object({
-    category: yup.string().required('Select or add new category'), text: yup.string().required('Write the text')
+    category: yup.string().required('Select or add new category'),
+    text: yup.string().required('Write the text')
   });
-
 
   const dispatch = useDispatch();
   const [categoryValue, setCategoryValue] = useState('');
@@ -53,19 +53,14 @@ const AddTaskForm = ({ onSubmit }) => {
     mode: 'onBlur', resolver: yupResolver(schema)
   });
 
-
   const handleChange = (event) => {
     setCategoryValue(event.target.value);
   };
 
   const addNewCategory = (name) => {
-    let catId;
-    categoryList.find((el) => {
-      catId = Math.max(el.id) + 1;
-    });
     let color = Math.floor(Math.random() * 16777215).toString(16);
     let newCategory = {
-      color: `#${color}`, id: catId, name
+      color: `#${color}`, name
     };
     dispatch(addCategoryThunk(newCategory));
     setOpenAlert(true);

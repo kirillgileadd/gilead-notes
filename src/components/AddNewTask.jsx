@@ -21,9 +21,7 @@ const style = {
 
 function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
   const onSubmit = (data) => {
-    let newId = Math.random(); // id-generator
     let newTask = {
-      id: newId,
       ...data,
       listId
     };

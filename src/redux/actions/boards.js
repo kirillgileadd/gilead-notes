@@ -4,7 +4,6 @@ export const fetchBoards = (currentPage = 1, currentCategoryItem, debouncedSearc
   try {
     dispatch(setLoading(true));
     let response = await boardsAPI.getBoards(currentPage, currentCategoryItem, debouncedSearchTerm);
-    console.log(response.data);
     dispatch(setBoards(response.data));
     dispatch(setTotalCount(response.headers['x-total-count']));
   } catch (err) {
@@ -17,7 +16,9 @@ export const fetchBoards = (currentPage = 1, currentCategoryItem, debouncedSearc
 export const deleteTaskThunk = (id, listId) => async (dispatch) => {
   try {
     let response = await tasksAPI.deleteTask(id);
-    dispatch(deleteTaskAction(id, listId));
+    if(response.status === 200) {
+      dispatch(deleteTaskAction(id, listId));
+    }
   } catch (err) {
     console.log(err);
   }
@@ -26,7 +27,7 @@ export const deleteTaskThunk = (id, listId) => async (dispatch) => {
 export const postTaskThunk = (newTask, listId) => async (dispatch) => {
   try {
     let response = await tasksAPI.postTask(newTask);
-    dispatch(addTaskAction(newTask, listId));
+    dispatch(addTaskAction(response.data, listId));
   } catch (err) {
     console.log('Something failed');
   }
@@ -42,12 +43,14 @@ export const onDrugEndThunk = (result, columns) => async (dispatch) => {
       const destItems = [...destColumn.tasks];
       const [removed] = sourceItems.splice(source.index, 1);
       destItems.splice(destination.index, 0, removed);
-      dispatch(listDragEnd(source, sourceItems, destination, destItems));
+
       let newListonTask = {
         ...destItems.find((el) => el.id === Number(draggableId)),
         listId: parseInt(destination.droppableId.match(/\d+/))
       };
+      dispatch(listDragEnd(source, sourceItems, destination, destItems));
       const response = await tasksAPI.putTaskListId([Number(draggableId)], newListonTask);
+      dispatch(putTaskAction(response.data))
     } else {
       const sourceColumn = columns[source.droppableId];
       const sourceItems = [...sourceColumn.tasks];
@@ -74,14 +77,18 @@ export const setTotalCount = (totalCount) => ({
   payload: totalCount
 });
 
-export const addTaskAction = (task, id) => ({
+export const addTaskAction = (task) => ({
   type: 'ADD_TASK',
-  payload: { task, listId: id }
+  payload: task
 });
 
 export const deleteTaskAction = (id, listId) => ({
   type: 'DELETE_TASK',
   payload: { id, listId }
+});
+export const putTaskAction = (task) => ({
+  type: 'PUT_TASK',
+  payload: task
 });
 
 export const setCurrentPage = (currentPage) => ({

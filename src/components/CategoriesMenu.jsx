@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -9,29 +9,19 @@ import { Box, ListItemIcon, Typography } from '@mui/material';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryAction } from '../redux/actions/filter';
-import { clearBoards, fetchBoards } from '../redux/actions/boards';
 import { deleteCategoryThunk, fetchCategories } from '../redux/actions/categories';
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { useCurrentCategory } from '../hooks/useCurrentCategory';
 
 function CategoriesMenu() {
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
   const { currentCategory } = useSelector(({ filter }) => filter);
   const { categoryList } = useSelector(({ categories }) => categories);
-  const mounted = useRef();
-  const open = Boolean(anchorEl);
 
-  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory);
-
-  useEffect(() => {
-    if (!mounted.current) {
-      mounted.current = true;
-    } else {
-      dispatch(clearBoards());
-      dispatch(fetchBoards(1, currentCategoryItem));
-    }
-  }, [currentCategory]);
+  const currentCategoryItem = useCurrentCategory(currentCategory, categoryList)
 
   useEffect(() => {
     dispatch(fetchCategories());
@@ -96,7 +86,7 @@ function CategoriesMenu() {
       }}
     >
       <MenuItem
-        selected={currentCategory === null}
+        selected={currentCategory}
         onClick={(e) => handleMenuItemClick(e, null)}
       >
         All Categories
