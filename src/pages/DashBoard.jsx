@@ -4,27 +4,27 @@ import { Box, Grid, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBoards, onDrugEndThunk } from '../redux/actions/boards';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import useDebounce from '../hooks/useDebounce';
 
 
 const DashBoard = () => {
   const dispatch = useDispatch();
   const { categoryList } = useSelector(({ categories }) => categories);
-  const { fetching, currentPage, cards, totalCount  } = useSelector(({ boards }) => boards);
+  const { currentPage, totalCount, searchValue } = useSelector(({ boards }) => boards);
   const data = useSelector(({ boards }) => boards);
   const { currentCategory } = useSelector(({ filter }) => filter);
 
-  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory);
+  const currentCategoryItem = categoryList[currentCategory]?.name;
+  const debouncedSearchTerm = useDebounce(searchValue, 300);
 
   const onDragEnd = (result, columns) => {
-    if(!result.destination) return;
-    dispatch(onDrugEndThunk(result, columns))
-  }
+    if (!result.destination) return;
+    dispatch(onDrugEndThunk(result, columns));
+  };
 
   useEffect(() => {
-    if (fetching) {
-      dispatch(fetchBoards(currentPage, currentCategoryItem));
-    }
-  }, [fetching]);
+    dispatch(fetchBoards(currentPage, currentCategoryItem, debouncedSearchTerm));
+  }, [debouncedSearchTerm, currentCategoryItem]);
 
   // useEffect(() => {
   //   document.addEventListener('scroll', scrollHandler);
@@ -42,7 +42,7 @@ const DashBoard = () => {
 
   return (
     <Box
-      sx={{p: 4, pb: 0 }}
+      sx={{ p: 4, pb: 0 }}
     >
       <Typography
         variant='h5'
@@ -56,27 +56,27 @@ const DashBoard = () => {
           onDragEnd(result, data.items);
         }}>
           {data.listIds.map((listId, index) => {
-              const board = data.items[listId];
-              return (
-                <Droppable key={listId} droppableId={listId}>
-                  {(provided, snapshot) => {
-                    return (
-                      <Grid item xs={4}
-                        {...provided.draggableProps}
-                        ref={provided.innerRef}
-                      >
-                        <DashItem
-                                  totalCount={totalCount}
-                                  board={board}
-                                  categoryList={categoryList}
-                                  index={index} />
-                      </Grid>
+            const board = data.items[listId];
+            return (
+              <Droppable key={listId} droppableId={listId}>
+                {(provided, snapshot) => {
+                  return (
+                    <Grid item xs={4}
+                          {...provided.draggableProps}
+                          ref={provided.innerRef}
+                    >
+                      <DashItem
+                        totalCount={totalCount}
+                        board={board}
+                        categoryList={categoryList}
+                        index={index} />
+                    </Grid>
 
-                    );
-                  }}
-                </Droppable>
-              );
-            })}
+                  );
+                }}
+              </Droppable>
+            );
+          })}
         </DragDropContext>
       </Grid>
     </Box>

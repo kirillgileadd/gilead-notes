@@ -9,7 +9,7 @@ import { useCurrentCategory } from '../hooks/useCurrentCategory';
 
 export const Category = styled(Typography)(({ theme }) => ({
   padding: '5px 15px',
-  borderRadius: '20px'
+  borderRadius: '20px',
 }));
 
 const TaskPaper = styled(Box)({
@@ -36,6 +36,15 @@ const TaskText = styled(Typography)({
   overflow: 'hidden',
   width: '100%'
 });
+
+const TaskButton = styled(Button)({
+  borderRadius: '20px',
+  textTransform: 'none',
+  border: 'none',
+  '&:hover': {
+    border: 'none',
+  }
+})
 
 const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) => {
   const currentCategory = useCurrentCategory(category, categoryList)
@@ -71,14 +80,14 @@ const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) =
         >
           <DeleteOutlineOutlinedIcon fontSize={'small'} />
         </IconButton>
-        <Button
+        <TaskButton
           component={Link}
           to={`/${id}`}
-          sx={{ borderRadius: '20px', textTransform: 'none' }}
+          sx={{ }}
           variant={'outlined'}
         >
           Details
-        </Button>
+        </TaskButton>
       </Box>
     </TaskPaper>
   );

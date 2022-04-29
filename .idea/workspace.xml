@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a33c890-e54d-4293-981a-ab6961a61fb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hooks/useCurrentCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoriesMenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DashItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DashItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DetailTask.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DetailTask.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/DashBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DashBoard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/boards.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/boards.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +124,7 @@
       <workItem from="1644649632688" duration="4873000" />
       <workItem from="1644792411917" duration="83000" />
       <workItem from="1644946563407" duration="380000" />
-      <workItem from="1651232987429" duration="5314000" />
+      <workItem from="1651232987429" duration="10751000" />
     </task>
     <servers />
   </component>

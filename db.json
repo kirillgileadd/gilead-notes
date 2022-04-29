@@ -5,34 +5,27 @@
       "title": "new note",
       "text": "text",
       "category": "Technologies",
-      "listId": 2
+      "listId": 3
     },
     {
       "id": 2,
       "title": "Desing",
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
       "category": "Design",
-      "listId": 3
+      "listId": 2
     },
     {
       "id": 3,
       "title": "One more note",
       "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
       "category": "Program",
-      "listId": 2
+      "listId": 1
     },
     {
       "id": 4,
       "title": "Green JavaScript",
       "text": "LOREM",
       "category": "JS",
-      "listId": 1
-    },
-    {
-      "id": 5,
-      "title": "One more task about Program",
-      "text": "Lorem loremloremloremloremloremlorem",
-      "category": "Program",
       "listId": 1
     },
     {
@@ -47,7 +40,7 @@
       "title": "Task about Design",
       "text": "lorem? ",
       "category": "Design",
-      "listId": 2
+      "listId": 3
     }
   ],
   "categories": [
@@ -65,11 +58,6 @@
       "id": 2,
       "name": "Program",
       "color": "#da42f5"
-    },
-    {
-      "color": "#527e18",
-      "id": 5,
-      "name": "Photo"
     },
     {
       "color": "#13cf4e",

@@ -56,8 +56,15 @@ const DashItem = ({ title, board, categoryList, totalCount }) => {
             }
           </Typography>
         </Box>
-        <CustomButton fullWidth onClick={handleOpenModal}><Typography variant={'h5'}
-                                                                      sx={{ fontSize: '30px' }}>+</Typography></CustomButton>
+        <CustomButton
+          fullWidth
+          onClick={handleOpenModal}>
+          <Typography
+            variant={'h5'}
+            sx={{ fontSize: '30px' }}
+          >+
+          </Typography>
+        </CustomButton>
         {
           !loading ? board.tasks.map((obj, index) => {
             return (

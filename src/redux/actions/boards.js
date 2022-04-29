@@ -4,9 +4,9 @@ export const fetchBoards = (currentPage = 1, currentCategoryItem, debouncedSearc
   try {
     dispatch(setLoading(true));
     let response = await boardsAPI.getBoards(currentPage, currentCategoryItem, debouncedSearchTerm);
+    console.log(response.data);
     dispatch(setBoards(response.data));
     dispatch(setTotalCount(response.headers['x-total-count']));
-    dispatch(setCurrentPage(currentPage));
   } catch (err) {
     console.log('Something failed');
   } finally {
@@ -87,6 +87,11 @@ export const deleteTaskAction = (id, listId) => ({
 export const setCurrentPage = (currentPage) => ({
   type: 'SET_CURRENT_PAGE',
   payload: currentPage
+});
+
+export const setSearchValue = (value) => ({
+  type: 'SET_SEARCH_VALUE',
+  payload: value
 });
 
 export const setLoading = (body) => ({

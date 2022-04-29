@@ -21,6 +21,7 @@ const initialState = {
   totalCount: null,
   loading: true,
   fetching: true,
+  searchValue: '',
   currentPage: 1
 };
 
@@ -37,24 +38,15 @@ export const boards = (state = initialState, action) => {
           ...state.items,
           [`list-1`]: {
             ...state.items[`list-1`],
-            tasks: [
-              ...state.items[`list-1`].tasks,
-              ...setTasks(action.payload, 1)
-            ]
+            tasks: [...setTasks(action.payload, 1)]
           },
           [`list-2`]: {
             ...state.items[`list-2`],
-            tasks: [
-              ...state.items[`list-2`].tasks,
-              ...setTasks(action.payload, 2)
-            ]
+            tasks: [...setTasks(action.payload, 2)]
           },
           [`list-3`]: {
             ...state.items[`list-3`],
-            tasks: [
-              ...state.items[`list-3`].tasks,
-              ...setTasks(action.payload, 3)
-            ]
+            tasks: [...setTasks(action.payload, 3)]
           }
         },
         cards: [...state.cards, ...action.payload],
@@ -72,6 +64,12 @@ export const boards = (state = initialState, action) => {
       return {
         ...state,
         currentPage: newCurrentPage
+      };
+    }
+    case 'SET_SEARCH_VALUE': {
+      return {
+        ...state,
+        searchValue: action.payload
       };
     }
     case 'SET_FETCHING': {

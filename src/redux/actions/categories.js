@@ -24,10 +24,6 @@ export const fetchCategories = () => async  (dispatch) =>  {
   dispatch(setCategories(response.data))
 }
 
-// export const changeCategories = (currentCategoryItem) => async  (dispatch) =>  {
-//   let response = await categoryAPI.changeCategories(currentCategoryItem)
-//   // dispatch(setBoards(response.data))
-// }
 export const addCategoryThunk = (category) => async  (dispatch) =>  {
   try {
     let response = await categoryAPI.postCategory(category)
