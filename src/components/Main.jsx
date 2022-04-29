@@ -4,7 +4,7 @@ import Header from './Header';
 import DashBoard from '../pages/DashBoard';
 import { Route, Routes } from 'react-router-dom';
 import Stats from '../pages/Stats';
-import DetailTask from './DetailTask';
+import DetailTask from '../pages/DetailTask';
 
 const Main = () => {
   return (

@@ -15,33 +15,33 @@ import IconButton from '@mui/material/IconButton';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function CategoriesMenu() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const {currentCategory} = useSelector(({filter}) => filter)
-  const { categoryList } = useSelector(({categories}) => categories)
+  const { currentCategory } = useSelector(({ filter }) => filter);
+  const { categoryList } = useSelector(({ categories }) => categories);
   const mounted = useRef();
   const open = Boolean(anchorEl);
 
-  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory)
+  const currentCategoryItem = categoryList.find((item) => item.id === currentCategory);
 
   useEffect(() => {
-    if(!mounted.current) {
+    if (!mounted.current) {
       mounted.current = true;
     } else {
-      dispatch(clearBoards())
-      dispatch(fetchBoards(1, currentCategoryItem))
+      dispatch(clearBoards());
+      dispatch(fetchBoards(1, currentCategoryItem));
     }
-  }, [currentCategory])
+  }, [currentCategory]);
 
   useEffect(() => {
-    dispatch(fetchCategories())
-  }, [])
+    dispatch(fetchCategories());
+  }, []);
 
   const deleteCategory = (id) => {
-    if(window.confirm('Do you really want to delete a category?')){
-      dispatch(deleteCategoryThunk(id))
+    if (window.confirm('Do you really want to delete a category?')) {
+      dispatch(deleteCategoryThunk(id));
     }
-  }
+  };
 
   const handleClickListItem = (event) => {
     setAnchorEl(event.currentTarget);
@@ -57,68 +57,68 @@ function CategoriesMenu() {
   };
 
   return <div>
-      <List
-        component="nav"
-        aria-label="Device settings"
-        sx={{ bgcolor: 'background.paper' }}
+    <List
+      component='nav'
+      aria-label='Device settings'
+      sx={{ bgcolor: 'background.paper' }}
+    >
+      <ListItem
+        button
+        id='lock-button'
+        aria-haspopup='listbox'
+        aria-controls='lock-menu'
+        aria-label='when device is locked'
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClickListItem}
       >
-        <ListItem
-          button
-          id="lock-button"
-          aria-haspopup="listbox"
-          aria-controls="lock-menu"
-          aria-label="when device is locked"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClickListItem}
-        >
-          <ListItemIcon sx={{display: 'inline-block', minWidth: '40px'}}>
-            <CategoryOutlinedIcon className={'icon'}/>
-          </ListItemIcon>
-          <ListItemText
-            primary="Categories"
-            secondary={currentCategoryItem?.name || 'All categories'}
-          />
-        </ListItem>
-      </List>
-      <Menu
-        id="lock-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'lock-button',
-          role: 'listbox',
-        }}
-        sx={{
-          '& .Mui-selected': {
-            backgroundColor: 'transparent'
-          }
-        }}
+        <ListItemIcon sx={{ display: 'inline-block', minWidth: '40px' }}>
+          <CategoryOutlinedIcon className={'icon'} />
+        </ListItemIcon>
+        <ListItemText
+          primary='Categories'
+          secondary={currentCategoryItem?.name || 'All categories'}
+        />
+      </ListItem>
+    </List>
+    <Menu
+      id='lock-menu'
+      anchorEl={anchorEl}
+      open={open}
+      onClose={handleClose}
+      MenuListProps={{
+        'aria-labelledby': 'lock-button',
+        role: 'listbox'
+      }}
+      sx={{
+        '& .Mui-selected': {
+          backgroundColor: 'transparent'
+        }
+      }}
+    >
+      <MenuItem
+        selected={currentCategory === null}
+        onClick={(e) => handleMenuItemClick(e, null)}
       >
-        <MenuItem
-          selected={currentCategory === null}
-          onClick={(e) => handleMenuItemClick(e,null)}
-        >
-          All Categories
-        </MenuItem>
-        {categoryList.map((option, index) => (
-          <Box key={option.name} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
+        All Categories
+      </MenuItem>
+      {categoryList.map((option, index) => (
+        <Box key={option.name} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
           <MenuItem
-            sx={{p: 0, width: '100%'}}
+            sx={{ p: 0, width: '100%' }}
             selected={index === currentCategory}
             onClick={(event) => handleMenuItemClick(event, option.id)}
           >
-            <Typography sx={{width: '100%', height: '100%', p: 1}} color={option?.color}>
+            <Typography sx={{ width: '100%', height: '100%', p: 1 }} color={option?.color}>
               {option.name}
             </Typography>
           </MenuItem>
-            <IconButton onClick={() => deleteCategory(option.id)}>
-              <DeleteOutlineIcon/>
-            </IconButton>
-          </Box>
-        ))}
-      </Menu>
-    </div>
+          <IconButton onClick={() => deleteCategory(option.id)}>
+            <DeleteOutlineIcon />
+          </IconButton>
+        </Box>
+      ))}
+    </Menu>
+  </div>;
 }
 
-export default CategoriesMenu
+export default CategoriesMenu;

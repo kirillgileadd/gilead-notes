@@ -1,5 +1,4 @@
-import { boardsAPI, categoryAPI, tasksAPI } from '../../api/api';
-import { deleteTaskAction } from './boards';
+import { categoryAPI } from '../../api/api';
 
 export const setCategories = (data) => ({
     type: 'SET_CATEGORIES',
@@ -14,6 +13,7 @@ export const setCategoriesLoading = (data) => ({
     type: 'SET_CATEGORIES_LOADING',
     payload: data
 })
+
 export const deleteCategoryAction = (id) => ({
     type: 'DELETE_CATEGORY',
     payload: id

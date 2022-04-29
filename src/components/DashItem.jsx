@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box, Button, Grid, Paper, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import Task from './Task';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTaskAction, deleteTaskThunk, postTaskThunk } from '../redux/actions/boards';
+import { deleteTaskThunk, postTaskThunk } from '../redux/actions/boards';
 import AddNewTask from './AddNewTask';
 import LoadingBoards from './LoadingBoards';
 import { Draggable } from 'react-beautiful-dnd';
@@ -24,7 +24,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 const DashItem = ({ title, board, categoryList, totalCount }) => {
   const dispatch = useDispatch();
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const { loading } = useSelector(({ boards }) => boards);
   const listId = board.id;
 
@@ -68,7 +68,7 @@ const DashItem = ({ title, board, categoryList, totalCount }) => {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      sx={{mt: 1}}
+                      sx={{ mt: 1 }}
                     >
                       <Task
 
