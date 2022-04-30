@@ -90,7 +90,7 @@ function CategoriesMenu() {
       >
         All Categories
       </MenuItem>
-      {categoryList.map((option, index) => (
+      {categoryList && categoryList.map((option, index) => (
         <Box key={option.name} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
           <MenuItem
             sx={{ p: 0, width: '100%' }}
