@@ -26,20 +26,6 @@ const DashBoard = () => {
     dispatch(fetchBoards(currentPage, currentCategoryItem, debouncedSearchTerm));
   }, [debouncedSearchTerm, currentCategoryItem]);
 
-  // useEffect(() => {
-  //   document.addEventListener('scroll', scrollHandler);
-  //   return function() {
-  //     document.removeEventListener('scroll', scrollHandler);
-  //   };
-  // }, [cards, totalCount]);
-  //
-  // const scrollHandler = (e) => {
-  //   if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 60 && cards.length < totalCount) {
-  //     console.log('asd');
-  //     dispatch(setFetching(true));
-  //   }
-  // };
-
   return (
     <Box
       sx={{ p: 4, pb: 0 }}

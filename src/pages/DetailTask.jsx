@@ -39,16 +39,17 @@ const DetailTask = () => {
         task ?
           <>
             <Box
-              sx={{marginBottom: '25px' }}
+              sx={{ marginBottom: '25px' }}
               display='flex'
               justifyContent='space-between'
             >
               <Typography sx={{ mr: 2 }} variant={'h5'}>{task.title || 'Untitled'}</Typography>
-              <Category
-                color={currentCategory?.color}
-                backgroundColor={alpha(currentCategory?.color, 0.1)}>
-                {currentCategory?.name}
-              </Category>
+              {currentCategory &&
+                <Category
+                  color={currentCategory?.color}
+                  backgroundColor={alpha(currentCategory?.color, 0.1)}>
+                  {currentCategory?.name}
+                </Category>}
             </Box>
             <Typography color={'secondary'} variant={'body1'}>{task.text}</Typography>
           </>

@@ -56,7 +56,7 @@ const Task = ({ title, id, text, category, categoryList, deleteTask, listId }) =
   return (
     <TaskPaper>
       <TaskInner>
-        <Typography variant='subtitle1'>
+        <Typography variant='subtitle1' noWrap>
           {title || 'Untitled'}
         </Typography>
         {currentCategory && <Category

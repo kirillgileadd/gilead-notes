@@ -3,7 +3,7 @@ import { boardsAPI, tasksAPI } from '../../api/api';
 export const fetchBoards = (currentPage = 1, currentCategoryItem, debouncedSearchTerm) => async (dispatch) => {
   try {
     dispatch(setLoading(true));
-    let response = await boardsAPI.getBoards(currentPage, currentCategoryItem, debouncedSearchTerm);
+    let response = await boardsAPI.getBoards(currentCategoryItem, debouncedSearchTerm);
     dispatch(setBoards(response.data));
     dispatch(setTotalCount(response.headers['x-total-count']));
   } catch (err) {

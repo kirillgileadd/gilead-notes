@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 
-export const useCurrentCategory = (categoryName, categoryList) => {
+export const useCurrentCategory = (category, categoryList) => {
   const currentCategory = useMemo(() => {
-    if(categoryName) {
-      return categoryList.find(cat => cat.name === categoryName)
+    if(typeof category === 'string') {
+      return categoryList.find(cat => cat.name === category)
+    } else if(typeof category === 'number') {
+      return categoryList.find(cat => cat.id === category)
     }
-  }, [categoryName, categoryList])
-
+  }, [category, categoryList])
  return currentCategory
 }

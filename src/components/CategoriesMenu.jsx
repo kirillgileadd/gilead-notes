@@ -53,7 +53,6 @@ function CategoriesMenu() {
       sx={{ bgcolor: 'background.paper' }}
     >
       <ListItem
-        button
         id='lock-button'
         aria-haspopup='listbox'
         aria-controls='lock-menu'
@@ -86,7 +85,7 @@ function CategoriesMenu() {
       }}
     >
       <MenuItem
-        selected={currentCategory}
+        selected={!currentCategoryItem?.name}
         onClick={(e) => handleMenuItemClick(e, null)}
       >
         All Categories

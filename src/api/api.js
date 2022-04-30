@@ -8,11 +8,9 @@ const instance = axios.create({
 })
 
 export const boardsAPI = {
-  getBoards(page, currentCategoryItem, search) {
+  getBoards(currentCategoryItem, search) {
     return instance.get(`/tasks`, {
       params: {
-        _limit: 10,
-        _page: page,
         category: currentCategoryItem,
         q: search,
       }
