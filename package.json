@@ -14,6 +14,7 @@
     "@usereact/use-yup": "^1.0.0",
     "axios": "^0.24.0",
     "chroma-js": "^2.1.2",
+    "express": "^4.18.1",
     "firebase": "^9.5.0",
     "material-ui-color": "^1.2.0",
     "material-ui-color-picker": "^3.5.1",
