@@ -1,77 +1,63 @@
-import React, { useState } from 'react';
-import {
-  Alert,
-  AlertTitle,
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-  Typography
-} from '@mui/material';
+import React from 'react';
+import { Box, Button, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
-import AddIcon from '@mui/icons-material/Add';
-import IconButton from '@mui/material/IconButton';
-import { addCategoryThunk } from '../redux/actions/categories';
+import { useSelector } from 'react-redux';
+import { Controller, useForm, useFormState } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 
 const TitleInput = styled(InputBase)(({ theme }) => ({
-  color: theme.palette.secondary.main, fontSize: '60px', '& .MuiInputBase-input': {
-    transition: theme.transitions.create('width'), width: '100%', height: '100px'
+  color: theme.palette.secondary.main, fontSize: '60px',
+  '& .MuiInputBase-input': {
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    height: '100px'
   }
 }));
 
 const TextInput = styled(InputBase)(({ theme }) => ({
-  color: theme.palette.secondary.main, fontSize: '20px', display: 'flex', alignItems: 'flex-start'
+  color: theme.palette.secondary.main,
+  fontSize: '20px',
+  display: 'flex',
+  alignItems: 'flex-start'
 }));
 
 const Form = styled('form')(({ theme }) => ({
-  display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%'
+  display: 'flex',
+  height: "100%",
+  width: "100%",
+  flexDirection: 'column'
 }));
+
+const schema = yup.object({
+  category: yup.string(),
+  text: yup.string().required('Write the text'),
+  newCategory: yup.string()
+});
 
 
 const AddTaskForm = ({ onSubmit }) => {
-  const schema = yup.object({
-    category: yup.string().required('Select or add new category'),
-    text: yup.string().required('Write the text')
-  });
-
-  const dispatch = useDispatch();
-  const [categoryValue, setCategoryValue] = useState('');
-  const [newCategoryValue, setNewCategoryValue] = useState('');
-  const [openAlert, setOpenAlert] = useState(false);
   const { categoryList } = useSelector(({ categories }) => categories);
 
-  const { register, handleSubmit, formState: { errors }, watch } = useForm({
-    mode: 'onBlur', resolver: yupResolver(schema)
+  const { register, control, handleSubmit, formState: { errors }, watch } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      category: ''
+    }
   });
 
-  const handleChange = (event) => {
-    setCategoryValue(event.target.value);
-  };
+  const { dirtyFields } = useFormState({
+    control
+  });
 
-  const addNewCategory = (name) => {
-    let color = Math.floor(Math.random() * 16777215).toString(16);
-    let newCategory = {
-      color: `#${color}`, name
-    };
-    dispatch(addCategoryThunk(newCategory));
-    setOpenAlert(true);
-  };
-
-  return (<Form
-    component={'form'}
-    noValidate
-    onSubmit={handleSubmit(onSubmit)}
-  >
-    <Box>
+  return (
+    <Form
+      component={'form'}
+      noValidate
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TitleInput
         fullWidth
         placeholder={'Untitled'}
@@ -81,59 +67,65 @@ const AddTaskForm = ({ onSubmit }) => {
         type='text'
         error={!!errors.title}
       />
-      <Box display={'flex'}>
-        <Box width={'100%'}>
-          <TextInput
-            multiline
-            maxRows={10}
-            fullWidth
-            placeholder={'Enter some text'}
-            {...register('text')}
-            id={'text'}
-            name={'text'}
-            type='text'
-            error={!!errors.text}
-          />
-          <Typography variant={'body2'} component={'h6'} color={'red'}>{errors?.text?.message}</Typography>
-        </Box>
-        <Box sx={{ ml: 3 }}>
-          <Box sx={{ mb: 2 }} display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
-            <TextField
-              fullWidth
-              value={newCategoryValue}
-              name={'newCategory'}
-              onChange={(e) => setNewCategoryValue(e.target.value)}
-              placeholder={'Add new Category'}
-            />
-            <IconButton onClick={() => addNewCategory(newCategoryValue)}>
-              <AddIcon />
-            </IconButton>
-          </Box>
-          <FormControl sx={{ width: '300px', mb: 2 }}>
-            <InputLabel id='demo-simple-select-label'>Select Category</InputLabel>
-            <Select
-              {...register('category')}
-              id={'category'}
-              name={'category'}
-              type='text'
-              error={!!errors.category}
-              value={categoryValue}
-              label='Select Category'
-              onChange={handleChange}
+      <TextInput
+        sx={{flexGrow: 1}}
+        multiline
+        maxRows={10}
+        fullWidth
+        placeholder={'Enter some text'}
+        {...register('text')}
+        id={'text'}
+        name={'text'}
+        type='text'
+        error={!!errors.text}
+      />
+      <Typography
+        variant={'body2'}
+        component={'h6'}
+        color={'red'}
+      >
+        {errors?.text?.message}
+      </Typography>
+      <Box
+        display='flex'
+        flexDirection='column'
+        sx={{width: "300px"}}
+      >
+        <InputLabel id='demo-simple-select-label'>Select Category</InputLabel>
+        <Controller
+          name='category'
+          control={control}
+          render={({ field }) => <Select
+            {...field}
+            sx={{mb: 1}}
+            error={!!errors.category}
+          >
+            <MenuItem
+              value=''
+              defaultValue
             >
-              {categoryList.map((item) => <MenuItem key={item.id} sx={{ color: item.color }}
-                                                    value={item.name}>{item.name}</MenuItem>)}
-            </Select>
-          </FormControl>
-          {openAlert && <Alert severity='success'>
-            <AlertTitle>A category has been added</AlertTitle>
-            Select a new <strong>category!</strong>
-          </Alert>}
-        </Box>
+              Add new category
+            </MenuItem>
+            {categoryList.map((item) => <MenuItem
+              key={item.id}
+              sx={{ color: item.color }}
+              value={item.name}
+            >
+              {item.name}
+            </MenuItem>)}
+          </Select>}
+        >
+        </Controller>
+        {!dirtyFields.category &&
+          <TextField
+            fullWidth
+            {...register('newCategory')}
+            name={'newCategory'}
+            placeholder={'Add new Category'}
+          />}
       </Box>
-    </Box>
-    <Button type={'submit'} sx={{ alignSelf: 'flex-end', justifySelf: 'end' }} variant={'contained'}>ADD TASK</Button>
-  </Form>);
+      <Button type={'submit'} sx={{ alignSelf: 'flex-end', justifySelf: 'end' }} variant={'contained'}>ADD TASK</Button>
+    </Form>);
 };
 
 export default AddTaskForm;

@@ -2,8 +2,8 @@ import { Box, Modal } from '@mui/material';
 import * as React from 'react';
 import '../App.css';
 import AddTaskForm from './AddTaskForm';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch } from 'react-redux';
+import { addCategoryThunk } from '../redux/actions/categories';
 
 const style = {
   position: 'absolute',
@@ -20,9 +20,23 @@ const style = {
 
 
 function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
+  const dispatch = useDispatch()
+
   const onSubmit = (data) => {
+    const { category, newCategory, title, text } = data
+
+    if(newCategory && !category) {
+      let color = Math.floor(Math.random() * 16777215).toString(16);
+      let newCategoryObj = {
+        color: `#${color}`, name: newCategory
+      };
+      dispatch(addCategoryThunk(newCategoryObj));
+    }
+
     let newTask = {
-      ...data,
+      title,
+      text,
+      category: !category ? newCategory : category,
       listId
     };
     addTask(newTask);
@@ -43,9 +57,6 @@ function AddNewTask({ setOpenModal, open, addTask, handleCloseModal, listId }) {
           justifyContent={'space-between'}
         >
           <AddTaskForm onSubmit={onSubmit} />
-          <IconButton onClick={() => setOpenModal(false)}>
-            <CloseIcon />
-          </IconButton>
         </Box>
       </Modal>
     </div>

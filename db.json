@@ -5,7 +5,7 @@
       "title": "new note",
       "text": "text",
       "category": "Technologies",
-      "listId": 2
+      "listId": 1
     },
     {
       "id": 2,
@@ -19,7 +19,14 @@
       "title": "Green JavaScript",
       "text": "LOREM",
       "category": "JS",
-      "listId": 3
+      "listId": 2
+    },
+    {
+      "title": "New task",
+      "text": "loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem",
+      "category": "Program",
+      "listId": 3,
+      "id": 5
     }
   ],
   "categories": [
